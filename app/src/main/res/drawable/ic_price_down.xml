@@ -1,0 +1,34 @@
+<!--
+  ~     This file is part of Sarrafi.
+  ~
+  ~     Sarrafi is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Sarrafi is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="25"
+    android:viewportHeight="25"
+    android:width="25dp"
+    android:height="25dp">
+    <path
+        android:pathData="M23.64286 12.5A11.14286 11.14286 0 0 1 1.357143 12.5A11.14286 11.14286 0 0 1 23.64286 12.5Z"
+        android:strokeColor="#DF10A8"
+        android:strokeWidth="2" />
+    <group
+        android:scaleY="-1"
+        android:translateY="25.80507">
+        <path
+            android:pathData="M16.5643042 14.0536825L13.0680828 10.5982096C12.9150587 10.4439255 12.7067557 10.3571429 12.4894541 10.3571429C12.2721525 10.3571429 12.0638495 10.4439255 11.9108254 10.5982096L8.45535248 14.0536825C8.30106835 14.2067067 8.21428571 14.4150096 8.21428571 14.6323112C8.21428571 14.8496128 8.30106835 15.0579158 8.45535248 15.21094C8.77322131 15.5269231 9.28659138 15.5269231 9.60446021 15.21094L12.4894541 12.3259461L15.374448 15.21094C15.5262448 15.3615009 15.7311279 15.446381 15.944927 15.4472813C16.1615485 15.4485337 16.3697555 15.3634914 16.5235557 15.21094C16.683351 15.0634197 16.777556 14.8581505 16.785209 14.640807C16.7928619 14.4234635 16.7133279 14.2120766 16.5643042 14.0536825Z"
+            android:fillColor="#DF10A8" />
+    </group>
+</vector>

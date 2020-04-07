@@ -1,0 +1,30 @@
+<!--
+  ~     This file is part of Sarrafi.
+  ~
+  ~     Sarrafi is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Sarrafi is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="25"
+    android:viewportHeight="25"
+    android:width="25dp"
+    android:height="25dp">
+    <path
+        android:pathData="M23.64286 12.5A11.14286 11.14286 0 0 1 1.357143 12.5A11.14286 11.14286 0 0 1 23.64286 12.5Z"
+        android:strokeColor="#0FCC90"
+        android:strokeWidth="2" />
+    <path
+        android:pathData="M16.5643042 13.3393968L13.0680828 9.88392391C12.9150587 9.72963977 12.7067557 9.64285714 12.4894541 9.64285714C12.2721525 9.64285714 12.0638495 9.72963977 11.9108254 9.88392391L8.45535248 13.3393968C8.30106835 13.492421 8.21428571 13.7007239 8.21428571 13.9180255C8.21428571 14.1353271 8.30106835 14.3436301 8.45535248 14.4966542C8.77322131 14.8126373 9.28659138 14.8126373 9.60446021 14.4966542L12.4894541 11.6116604L15.374448 14.4966542C15.5262448 14.6472152 15.7311279 14.7320953 15.944927 14.7329955C16.1615485 14.734248 16.3697555 14.6492056 16.5235557 14.4966542C16.683351 14.349134 16.777556 14.1438648 16.785209 13.9265213C16.7928619 13.7091778 16.7133279 13.4977909 16.5643042 13.3393968Z"
+        android:fillColor="#0FCC90" />
+</vector>

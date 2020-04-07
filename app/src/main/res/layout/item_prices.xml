@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~     This file is part of Sarrafi.
+  ~
+  ~     Sarrafi is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Sarrafi is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/item_prices_card"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    android:layoutDirection="rtl"
+    android:layout_margin="12dp">
+
+    <LinearLayout
+        android:id="@+id/item_prices_linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_purple"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/item_prices_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#CCFFFFFF"
+            android:textSize="16sp"
+            android:text="دلار"/>
+
+        <TextView
+            android:id="@+id/item_prices_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="end|center_vertical"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:text="۱۱,۴۰۰"
+            fontPath="fonts/Shabnam-Medium-FD.ttf"
+            tools:ignore="MissingPrefix" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/item_prices_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:textColor="#A6FFFFFF"
+                android:textSize="12sp"
+                android:text="۱۵٪"
+                fontPath="fonts/Shabnam-Medium-FD.ttf"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/item_prices_date"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="end|center_vertical"
+                android:textColor="#A6FFFFFF"
+                android:textSize="12sp"
+                android:text="۱۲ شهریور"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

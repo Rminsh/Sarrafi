@@ -1,0 +1,67 @@
+<!--
+  ~     This file is part of Sarrafi.
+  ~
+  ~     Sarrafi is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Sarrafi is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="200"
+    android:viewportHeight="200"
+    android:width="200dp"
+    android:height="200dp">
+    <group
+        android:translateX="57"
+        android:translateY="46">
+        <group
+            android:translateX="0.13809">
+            <path
+                android:pathData="M43.8287786 12.6289594L22.0861661 25.2784716 0.201803345 12.6289594 21.9406889 0.150358943Z"
+                android:fillType="evenOdd"
+                android:fillColor="#E21F7B" />
+            <path
+                android:pathData="M43.972199 68.7376568L22.2295865 81.387169 0.345223756 68.7376568 22.0841093 56.2590564Z"
+                android:fillType="evenOdd"
+                android:fillColor="#E21F7B"
+                android:fillAlpha="0.2" />
+            <path
+                android:pathData="M22.0892802 25.2556327L21.88721 81.3136756 0.00003644188 68.6859503 0.20210665 12.6279074Z"
+                android:fillType="evenOdd"
+                android:fillColor="#E21F7B"
+                android:fillAlpha="0.6" />
+        </group>
+        <group
+            android:rotation="-0"
+            android:scaleX="-1"
+            android:translateX="86.65116"
+            android:translateY="26.23122">
+            <group
+                android:translateX="0.13809">
+                <path
+                    android:pathData="M43.837933 12.6474234L22.0953206 25.2969356 0.210957815 12.6474234 21.9498434 0.168822909Z"
+                    android:fillType="evenOdd"
+                    android:fillColor="#379D7E" />
+                <path
+                    android:pathData="M43.972199 68.7376568L22.2295865 81.387169 0.345223756 68.7376568 22.0841093 56.2590564Z"
+                    android:fillType="evenOdd"
+                    android:fillColor="#379D7E"
+                    android:fillAlpha="0.2" />
+                <path
+                    android:pathData="M22.0892802 25.2556327L21.88721 81.3136756 0.00003644188 68.6859503 0.20210665 12.6279074Z"
+                    android:fillType="evenOdd"
+                    android:fillColor="#379D7E"
+                    android:fillAlpha="0.6" />
+            </group>
+        </group>
+    </group>
+</vector>

@@ -1,0 +1,71 @@
+<!--
+  ~     This file is part of Sarrafi.
+  ~
+  ~     Sarrafi is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Sarrafi is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <string name="app_name">صرافی</string>
+    <string name="add">افزودن</string>
+    <string name="title">موضوع</string>
+    <string name="detail">توضیحات</string>
+    <string name="date">تاریخ</string>
+    <string name="send">ارسال</string>
+    <string name="delete">حذف</string>
+    <string name="no_network">به اینترنت متصل نیستید</string>
+    <string name="try_again">تلاش دوباره</string>
+    <string name="empty_list">لیست خالی میباشد</string>
+    <string name="error_parsing">خطا در بارگزاری اطلاعات</string>
+    <string name="error_loading">خطا در دریافت اطلاعات</string>
+    <string name="error_deleting_with_id">خطا در حذف اطلاعیه به شماره </string>
+    <string name="feedback">ارسال فیدبک</string>
+    <string name="about">درباره ما</string>
+    <string name="your_name">نام شما</string>
+    <string name="feedback_title">در صورت امکان نظرات و پیشنهادات خود را برای ما ارسال کنید</string>
+    <string name="cancel">لغو</string>
+    <string name="error_sending_feedback">خطا در ارسال فیدبک</string>
+    <string name="feedback_sent">از ارسال فیدبک شما متشکریم!</string>
+    <string name="description_edge">دریافت آخرین قیمت ارز و طلا و نفت</string>
+
+    <string name="telegram">تلگرام</string>
+    <string name="webpage">وبسایت ما</string>
+    <string name="email">ایمیل</string>
+    <string name="version">ورژن</string>
+
+    <string name="share">به اشتراک گذاری</string>
+    <string name="share_using">ارسال توسط...</string>
+
+    <string name="price_percent_change">درصد تغییرات قیمت</string>
+    <string name="price_change">تغییرات قیمت</string>
+    <string name="price_low">پایین‌ترین قیمت روز</string>
+    <string name="price_high">بالاترین قیمت روز</string>
+    <string name="last_update">آخرین به‌روز‌رسانی</string>
+
+    <string name="choose_filter">نوع دسته بندی را انتخاب کنید</string>
+    <string name="all_items">همه‌ی موارد</string>
+    <string name="currency_items">ارز</string>
+    <string name="gold_items">طلا</string>
+    <string name="oil_items">نفت</string>
+    <string name="digital_currency_items">ارزهای دیجیتال</string>
+    <string name="filter">فیلتر</string>
+    <string name="daily">امروز</string>
+    <string name="monthly">ماهانه</string>
+    <string name="chart_all">تحولات کلی</string>
+    <string name="six_months">۶ ماهه</string>
+    <string name="three_months">۳ ماهه</string>
+    <string name="open_source_libraries">کتابخانه‌های متن باز</string>
+
+    <string name="percent_change_format">%.2f %%</string>
+    <string name="github">گیت‌هاب</string>
+</resources>

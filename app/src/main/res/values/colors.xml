@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~     This file is part of Sarrafi.
+  ~
+  ~     Sarrafi is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Sarrafi is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <color name="colorPrimary">#313858</color>
+    <color name="colorPrimaryDark">#313858</color>
+    <color name="colorPrimaryLight">#3C446A</color>
+    <color name="colorAccent">#3B86CF</color>
+    <color name="purple">#A800E9</color>
+    <color name="blue">#38D1FA</color>
+    <color name="light_green">#6BEC99</color>
+    <color name="white_grey">#F3F3F3</color>
+    <color name="price_down">#DF10A8</color>
+    <color name="price_up">#0FCC90</color>
+</resources>

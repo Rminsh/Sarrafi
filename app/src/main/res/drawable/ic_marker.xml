@@ -1,0 +1,29 @@
+<!--
+  ~     This file is part of Sarrafi.
+  ~
+  ~     Sarrafi is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Sarrafi is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="65"
+    android:viewportHeight="55"
+    android:width="65dp"
+    android:height="55dp">
+    <path
+        android:pathData="M5.5 3L59.5 3C61.1568542 3 62.5 4.34314575 62.5 6L62.5 42C62.5 43.6568542 61.1568542 45 59.5 45L37.3059969 45L37.3059969 45L32.5 53L27.6918524 45L5.5 45C3.84314575 45 2.5 43.6568542 2.5 42L2.5 6C2.5 4.34314575 3.84314575 3 5.5 3Z"
+        android:fillColor="#000000" />
+    <path
+        android:pathData="M5.5 3L59.5 3C61.1568542 3 62.5 4.34314575 62.5 6L62.5 42C62.5 43.6568542 61.1568542 45 59.5 45L37.3059969 45L37.3059969 45L32.5 53L27.6918524 45L5.5 45C3.84314575 45 2.5 43.6568542 2.5 42L2.5 6C2.5 4.34314575 3.84314575 3 5.5 3Z"
+        android:fillColor="#485381" />
+</vector>
