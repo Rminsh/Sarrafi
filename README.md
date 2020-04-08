@@ -30,4 +30,4 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 
 
 ## Download ⬇️
-[Release Page]("https://github.com/Rminsh/Sarrafi/releases")
+[Release Page](https://github.com/Rminsh/Sarrafi/releases)
