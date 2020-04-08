@@ -206,11 +206,11 @@ public class DetailActivity extends AppCompatActivity {
     chart.animateX(400);
 
     chart.setDrawBorders(false);
-    chart.setPinchZoom(false);
+    chart.setPinchZoom(true);
     chart.setDrawGridBackground(false);
     chart.getDescription().setEnabled(false);
     chart.getXAxis().setTypeface(ActivityHelper.setTypeface(getBaseContext(), "Shabnam-FD.ttf"));
-    chart.setScaleEnabled(false);
+    chart.setScaleEnabled(true);
     chart.getXAxis().setTextColor(Color.WHITE);
     chart.getAxisLeft().setTextColor(Color.WHITE);
     chart.getAxisLeft().setEnabled(true);
@@ -378,6 +378,9 @@ public class DetailActivity extends AppCompatActivity {
         values1.add(new Entry(i, price.get(i)));
     }
 
+    //Remove circles if data is more than 90
+    boolean circleStatus = price.size() <= 90;
+
     LineDataSet lineDataSet;
     lineDataSet = new LineDataSet(values1, "");
     lineDataSet.setMode(LineDataSet.Mode.HORIZONTAL_BEZIER);
@@ -389,7 +392,7 @@ public class DetailActivity extends AppCompatActivity {
       chart.notifyDataSetChanged();
     } else {
       lineDataSet.setLineWidth(3f);
-      lineDataSet.setDrawCircles(true);
+      lineDataSet.setDrawCircles(circleStatus);
       lineDataSet.setCircleColor(getResources().getColor(R.color.colorAccent));
       lineDataSet.setColor(getResources().getColor(R.color.colorAccent));
       lineDataSet.setCircleRadius(6f);

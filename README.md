@@ -19,7 +19,7 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 
 
 
-## Donation and Sponsoring ✌🏻
+## Donation ✌🏻
 
 #### Patreon
 
