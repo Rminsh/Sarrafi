@@ -9,7 +9,7 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 
 
 
-# Previews
+## Previews 📱
 
 <p align="center">
 <img src="preview/preview_1.png" height="350"/>
@@ -19,10 +19,15 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 
 
 
-## Donation and Sponsoring
+## Donation and Sponsoring ✌🏻
 
 #### Patreon
 
 <a href="https://www.patreon.com/shalchian">
     <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
+
+
+
+## Download ⬇️
+[Release Page]("https://github.com/Rminsh/Sarrafi/releases")
