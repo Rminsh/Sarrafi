@@ -27,8 +27,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.androidnetworking.AndroidNetworking;
@@ -64,6 +66,8 @@ import com.shalchian.sarrafi.utils.TableMarker;
 
 public class DetailActivity extends AppCompatActivity {
 
+  ScrollView scrollView;
+  View parent_chart_frame;
   LineChart chart;
   ProgressBar table_progressbar;
   Toolbar toolbar;
@@ -136,6 +140,8 @@ public class DetailActivity extends AppCompatActivity {
     toolbar.setNavigationIcon(R.drawable.ic_back);
     toolbar.setNavigationOnClickListener(view -> this.finish());
 
+    scrollView = findViewById(R.id.detail_scrollview);
+    parent_chart_frame = findViewById(R.id.parent_chart_frame);
     detail_price = findViewById(R.id.detail_price);
     detail_price_change = findViewById(R.id.detail_price_change);
     detail_percent_change_circular = findViewById(R.id.detail_percent_change_circular);
@@ -152,6 +158,9 @@ public class DetailActivity extends AppCompatActivity {
     detail_update.setText(UPDATE);
     detail_price_up.setText(PRICE_UP);
     detail_price_down.setText(PRICE_DOWN);
+
+    parent_chart_frame.setOnTouchListener(this::onTouchActionHandler);
+
     switch (Objects.requireNonNull(STATUS)) {
       case "low":
         PERCENT_CHANGE = "-" + PERCENT_CHANGE;
@@ -242,6 +251,16 @@ public class DetailActivity extends AppCompatActivity {
   public boolean onPrepareOptionsMenu(final Menu menu) {
     getMenuInflater().inflate(R.menu.detail_menu, menu);
     return super.onCreateOptionsMenu(menu);
+  }
+
+  protected boolean onTouchActionHandler(View v, MotionEvent event){
+    int action = event.getAction();
+    if (action == MotionEvent.ACTION_DOWN) {
+      // Disable touch on transparent view
+      scrollView.requestDisallowInterceptTouchEvent(true);
+      return false;
+    }
+    return true;
   }
 
   void getData() {
