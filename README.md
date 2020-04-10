@@ -9,6 +9,15 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 
 
 
+## Features 🌟
+
+- Display the latest prices
+- Price chart and other details
+- Quick look preview (Detail bottom sheet)
+- Price list in samsung edge panel (only galaxy edge series supported)
+
+
+
 ## Previews 📱
 
 <p align="center">
@@ -16,6 +25,21 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 <img src="preview/preview_2.png" height="350"/>
 <img src="preview/preview_3.png" height="350"/>
 <img src="preview/preview_4.png" height="350"/>
+
+
+## How to build 🛠
+
+1- Fork the project & Clone it to your desktop.
+
+2- Open it from Android Studio.
+
+3- Change Package Name.
+
+4- Create Firebase project & Download **google-service.json** file and copy it to app folder.
+
+5- build & run.
+
+6- enjoy.
 
 
 
@@ -30,4 +54,13 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 
 
 ## Download ⬇️
-[Release Page](https://github.com/Rminsh/Sarrafi/releases)
+
+[<img src="preview/direct-apk-download.png" alt="Direct apk download"  height="80">](https://github.com/Rminsh/Sarrafi/releases/latest)
+
+
+
+## Copyright Notice 📝
+
+Copyright (C) 2020 Armin Shalchian
+
+Licensed under the [GNU Version 3](https://www.gnu.org/licenses/gpl-3.0.en.html) license (see the LICENSE file).
