@@ -16,7 +16,8 @@
   -->
 
 <resources>
-    <string name="app_name">صرافی</string>
+    <string name="app_name">Sarrafi</string>
+    <string name="app_name_fa">صرافی</string>
     <string name="add">افزودن</string>
     <string name="title">موضوع</string>
     <string name="detail">توضیحات</string>

@@ -77,7 +77,7 @@ public class AboutActivity extends MaterialAboutActivity {
 
   @Override
   protected CharSequence getActivityTitle() {
-    return getString(R.string.app_name);
+    return getString(R.string.app_name_fa);
   }
 
   @Override
@@ -114,7 +114,7 @@ public class AboutActivity extends MaterialAboutActivity {
   private void buildApp(Context context, MaterialAboutCard.Builder appCardBuilder) {
     appCardBuilder
             .addItem(new MaterialAboutTitleItem.Builder()
-                    .text(R.string.app_name)
+                    .text(R.string.app_name_fa)
                     .icon(R.mipmap.ic_launcher_round)
                     .build())
             .addItem(new MaterialAboutActionItem.Builder()

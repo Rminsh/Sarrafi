@@ -51,7 +51,7 @@ public class ActivityHelper {
   }
 
   public static void shareText(Context context , String subject , String body) {
-    String shareBody = subject + "\n" + body + "\n\n" + "اپ " + context.getResources().getString(R.string.app_name);
+    String shareBody = subject + "\n" + body + "\n\n" + "اپ " + context.getResources().getString(R.string.app_name_fa);
     Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
     sharingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     sharingIntent.setType("text/plain");
