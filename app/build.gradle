@@ -25,10 +25,11 @@ android {
     buildToolsVersion '29.0.3'
     defaultConfig {
         applicationId "com.shalchian.sarrafi"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 29
-        versionCode 4
-        versionName "1.0.3"
+        versionCode 5
+        versionName "1.0.5"
+        multiDexEnabled true
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
 
@@ -54,6 +55,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.2.0-alpha05'
@@ -81,11 +83,18 @@ dependencies {
     implementation 'com.mikepenz:aboutlibraries:8.0.0-rc02'
 
     //Material about library
-    implementation 'com.github.daniel-stoneuk:material-about-library:2.4.2'
+    //noinspection GradleDependency
+    implementation 'com.github.daniel-stoneuk:material-about-library:-SNAPSHOT'
 
     //Circular progress indicator
     implementation 'com.github.antonKozyriatskyi:CircularProgressIndicator:1.3.0'
 
     //Hawk
     implementation 'com.orhanobut:hawk:2.0.1'
+
+    //App updater
+    implementation 'com.github.javiersantos:AppUpdater:2.7'
+
+    // Material Dialog Library
+    implementation 'com.shreyaspatil:MaterialDialog:2.1'
 }

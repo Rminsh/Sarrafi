@@ -182,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
       }
     });
 
+    ActivityHelper.checkUpdate(this, getBaseContext());
   }
 
   public void checkConnection() {

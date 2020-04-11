@@ -44,6 +44,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.shalchian.sarrafi.BuildConfig;
 import com.shalchian.sarrafi.R;
+import com.shalchian.sarrafi.utils.ActivityHelper;
 
 public class AboutActivity extends MaterialAboutActivity {
 
@@ -121,6 +122,7 @@ public class AboutActivity extends MaterialAboutActivity {
                     .text(getResources().getString(R.string.version))
                     .icon(ContextCompat.getDrawable(context, R.drawable.ic_information))
                     .subText(BuildConfig.VERSION_NAME)
+                    .setOnClickAction(() -> ActivityHelper.checkUpdate(this,context))
                     .build())
             .addItem(new MaterialAboutActionItem.Builder()
                     .text(getResources().getString(R.string.open_source_libraries))

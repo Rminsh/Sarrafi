@@ -69,4 +69,8 @@
 
     <string name="percent_change_format">%.2f %%</string>
     <string name="github">گیت‌هاب</string>
+    <string name="update_github">دریافت از گیت‌هاب</string>
+    <string name="download_later">بعدا دانلود میکنم</string>
+    <string name="new_update_available">به‌روزرسانی جدید</string>
+    <string name="new_update_available_detail">آپدیت جدید برای برنامه موجود است ، میخواهید دانلود کنید؟</string>
 </resources>

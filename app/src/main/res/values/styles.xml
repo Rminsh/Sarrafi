@@ -30,6 +30,14 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
         <item name="aboutLibrariesCardBackground">@color/colorPrimaryLight</item>
+
+        <!-- Customize your theme here. -->
+        <item name="material_dialog_background">@color/colorPrimaryLight</item>
+        <item name="material_dialog_title_text_color">@android:color/white</item>
+        <item name="material_dialog_message_text_color">#EAEAEA</item>
+        <item name="material_dialog_positive_button_color">#25292E</item>
+        <item name="material_dialog_positive_button_text_color">#FFFFFF</item>
+        <item name="material_dialog_negative_button_text_color">@android:color/white</item>
     </style>
 
     <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.BottomSheetDialog">
@@ -114,11 +122,21 @@
     </style>
 
     <style name="AppTheme.MaterialAboutActivity" parent="Theme.Mal.Dark">
+        <item name="colorSurface">@color/colorPrimary</item>
+        <item name="colorOnSurface">@color/colorPrimary</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
         <item name="mal_card_background">@color/colorPrimaryLight</item>
+
+        <!-- Customize your theme here. -->
+        <item name="material_dialog_background">@color/colorPrimaryLight</item>
+        <item name="material_dialog_title_text_color">@android:color/white</item>
+        <item name="material_dialog_message_text_color">#EAEAEA</item>
+        <item name="material_dialog_positive_button_color">#25292E</item>
+        <item name="material_dialog_positive_button_text_color">#FFFFFF</item>
+        <item name="material_dialog_negative_button_text_color">@android:color/white</item>
     </style>
 
 </resources>

@@ -17,13 +17,23 @@
 
 package com.shalchian.sarrafi.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import com.github.javiersantos.appupdater.AppUpdaterUtils;
+import com.github.javiersantos.appupdater.enums.AppUpdaterError;
+import com.github.javiersantos.appupdater.enums.UpdateFrom;
+import com.github.javiersantos.appupdater.objects.Update;
 import com.shalchian.sarrafi.R;
+import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
 
 public class ActivityHelper {
 
@@ -60,5 +70,48 @@ public class ActivityHelper {
     Intent startIntent = Intent.createChooser(sharingIntent, context.getResources().getString(R.string.share_using));
     startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     context.startActivity(startIntent);
+  }
+
+  private static void showUpdateDialog(Activity activity) {
+    BottomSheetMaterialDialog mBottomSheetDialog = new BottomSheetMaterialDialog.Builder(activity)
+            .setTitle(activity.getResources().getString(R.string.new_update_available))
+            .setMessage(activity.getResources().getString(R.string.new_update_available_detail))
+            .setAnimation("new_update.json")
+            .setCancelable(true)
+            .setPositiveButton(activity.getResources().getString(R.string.update_github), R.drawable.ic_github, (dialogInterface, which) -> {
+              Intent intent = new Intent();
+              intent.setAction(Intent.ACTION_VIEW);
+              intent.setData(Uri.parse("https://github.com/Rminsh/Sarrafi/releases/latest"));
+              activity.startActivity(intent);
+            })
+            .setNegativeButton(activity.getResources().getString(R.string.download_later), R.drawable.ic_close, (dialogInterface, which) -> dialogInterface.dismiss())
+            .build();
+
+    mBottomSheetDialog.show();
+  }
+
+  public static void checkUpdate(Activity activity,@NonNull Context context) {
+
+    AppUpdaterUtils appUpdaterUtils = new AppUpdaterUtils(context)
+            .setGitHubUserAndRepo("Rminsh", "Sarrafi")
+            .setUpdateFrom(UpdateFrom.GITHUB)
+            .withListener(new AppUpdaterUtils.UpdateListener() {
+              @Override
+              public void onSuccess(Update update, Boolean isUpdateAvailable) {
+                if (isUpdateAvailable)
+                  showUpdateDialog(activity);
+                Log.e("Latest Version", update.getLatestVersion());
+                Log.e("Latest Version Code", String.valueOf(update.getLatestVersionCode()));
+                Log.e("URL", String.valueOf(update.getUrlToDownload()));
+                Log.e("Is update available?", Boolean.toString(isUpdateAvailable));
+              }
+
+              @Override
+              public void onFailed(AppUpdaterError error) {
+                Log.e("AppUpdater Error", "Something went wrong");
+              }
+            });
+    appUpdaterUtils.start();
+
   }
 }
