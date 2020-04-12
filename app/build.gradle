@@ -23,6 +23,7 @@ apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 android {
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
+    flavorDimensions "default"
     defaultConfig {
         applicationId "com.shalchian.sarrafi"
         minSdkVersion 19
@@ -49,6 +50,15 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    productFlavors {
+        googlePlay {
+            buildConfigField 'boolean', "showUpdater", 'false'
+        }
+        github {
+            buildConfigField 'boolean', 'showUpdater', 'true'
+        }
     }
 }
 

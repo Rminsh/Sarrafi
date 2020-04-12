@@ -55,6 +55,7 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 
 ## Download ⬇️
 
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Google play download"  height="80">](https://play.google.com/store/apps/details?id=com.shalchian.sarrafi)
 [<img src="preview/direct-apk-download.png" alt="Direct apk download"  height="80">](https://github.com/Rminsh/Sarrafi/releases/latest)
 
 

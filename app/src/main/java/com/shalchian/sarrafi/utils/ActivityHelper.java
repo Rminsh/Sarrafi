@@ -32,7 +32,10 @@ import com.github.javiersantos.appupdater.AppUpdaterUtils;
 import com.github.javiersantos.appupdater.enums.AppUpdaterError;
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.github.javiersantos.appupdater.objects.Update;
+
 import com.shalchian.sarrafi.R;
+import com.shalchian.sarrafi.BuildConfig;
+
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
 
 public class ActivityHelper {
@@ -92,26 +95,27 @@ public class ActivityHelper {
 
   public static void checkUpdate(Activity activity,@NonNull Context context) {
 
-    AppUpdaterUtils appUpdaterUtils = new AppUpdaterUtils(context)
-            .setGitHubUserAndRepo("Rminsh", "Sarrafi")
-            .setUpdateFrom(UpdateFrom.GITHUB)
-            .withListener(new AppUpdaterUtils.UpdateListener() {
-              @Override
-              public void onSuccess(Update update, Boolean isUpdateAvailable) {
-                if (isUpdateAvailable)
-                  showUpdateDialog(activity);
-                Log.e("Latest Version", update.getLatestVersion());
-                Log.e("Latest Version Code", String.valueOf(update.getLatestVersionCode()));
-                Log.e("URL", String.valueOf(update.getUrlToDownload()));
-                Log.e("Is update available?", Boolean.toString(isUpdateAvailable));
-              }
+    if (BuildConfig.showUpdater) {
+      AppUpdaterUtils appUpdaterUtils = new AppUpdaterUtils(context)
+              .setGitHubUserAndRepo("Rminsh", "Sarrafi")
+              .setUpdateFrom(UpdateFrom.GITHUB)
+              .withListener(new AppUpdaterUtils.UpdateListener() {
+                @Override
+                public void onSuccess(Update update, Boolean isUpdateAvailable) {
+                  if (isUpdateAvailable)
+                    showUpdateDialog(activity);
+                  Log.e("Latest Version", update.getLatestVersion());
+                  Log.e("Latest Version Code", String.valueOf(update.getLatestVersionCode()));
+                  Log.e("URL", String.valueOf(update.getUrlToDownload()));
+                  Log.e("Is update available?", Boolean.toString(isUpdateAvailable));
+                }
 
-              @Override
-              public void onFailed(AppUpdaterError error) {
-                Log.e("AppUpdater Error", "Something went wrong");
-              }
-            });
-    appUpdaterUtils.start();
-
+                @Override
+                public void onFailed(AppUpdaterError error) {
+                  Log.e("AppUpdater Error", "Something went wrong");
+                }
+              });
+      appUpdaterUtils.start();
+    }
   }
 }
