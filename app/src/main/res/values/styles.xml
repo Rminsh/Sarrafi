@@ -121,9 +121,8 @@
         <item name="android:layout_gravity">top|center_horizontal</item>
     </style>
 
-    <style name="AppTheme.MaterialAboutActivity" parent="Theme.Mal.Dark">
+    <style name="AppTheme.MaterialAboutActivity" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorSurface">@color/colorPrimary</item>
-        <item name="colorOnSurface">@color/colorPrimary</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
