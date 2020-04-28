@@ -35,7 +35,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="com.shalchian.sarrafi.activity.SplashActivity"
+            android:name=".activity.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,12 +43,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.shalchian.sarrafi.activity.MainActivity" />
-        <activity android:name="com.shalchian.sarrafi.activity.DetailActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.DetailActivity" />
         <activity
-            android:name="com.shalchian.sarrafi.activity.AboutActivity"
+            android:name=".activity.AboutActivity"
             android:theme="@style/AppTheme.MaterialAboutActivity" />
 
+        <!-- Edge Panel (Galaxy Edge) -->
         <receiver
             android:name=".edge.EdgePlusList"
             tools:ignore="ExportedReceiver">
