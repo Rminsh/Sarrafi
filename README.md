@@ -43,6 +43,13 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 
 
 
+## Contribute 🧩
+
+Want to contribute? I would really appreciate a hand with the development to add more features in this app.
+Feel free to Fork, edit, then pull!
+
+
+
 ## Donation ✌🏻
 
 #### Patreon
