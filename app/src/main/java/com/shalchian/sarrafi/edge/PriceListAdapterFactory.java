@@ -27,13 +27,13 @@ import android.widget.RemoteViewsService;
 
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.db.DatabaseManager;
-import com.shalchian.sarrafi.model.PriceModelLegacy;
+import com.shalchian.sarrafi.model.PriceModel;
 
 import java.util.List;
 
 public class PriceListAdapterFactory implements RemoteViewsService.RemoteViewsFactory {
   private Context context;
-  private List<PriceModelLegacy> priceModels;
+  private List<PriceModel> priceModels;
 
   PriceListAdapterFactory(Context context) {
     this.context = context;
@@ -61,11 +61,11 @@ public class PriceListAdapterFactory implements RemoteViewsService.RemoteViewsFa
   public RemoteViews getViewAt(int position) {
     final RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.edge_plus_item_prices);
     try {
-      PriceModelLegacy priceModel = priceModels.get(position);
-      rv.setImageViewBitmap(R.id.edge_plus_prices_type, SetImageTypeface(priceModel.getName(), (int) context.getResources().getDimension(R.dimen.edge_item_medium), "Shabnam-FD"));
+      PriceModel priceModel = priceModels.get(position);
+      rv.setImageViewBitmap(R.id.edge_plus_prices_type, SetImageTypeface(priceModel.getType(), (int) context.getResources().getDimension(R.dimen.edge_item_medium), "Shabnam-FD"));
       rv.setImageViewBitmap(R.id.edge_plus_prices_price, SetImageTypeface(priceModel.getPrice() + " " + priceModel.getToCurrency(), (int) context.getResources().getDimension(R.dimen.edge_item_large), "Shabnam-Medium-FD"));
-      rv.setImageViewBitmap(R.id.edge_plus_prices_percent, SetImageTypeface((priceModel.getPercent() + "٪"), (int) context.getResources().getDimension(R.dimen.edge_item_small), "Shabnam-FD"));
-      rv.setImageViewBitmap(R.id.edge_plus_prices_date, SetImageTypeface(priceModel.getDate(), (int) context.getResources().getDimension(R.dimen.edge_item_small), "Shabnam-FD"));
+      rv.setImageViewBitmap(R.id.edge_plus_prices_percent, SetImageTypeface((priceModel.getPercent_change() + "٪"), (int) context.getResources().getDimension(R.dimen.edge_item_small), "Shabnam-FD"));
+      rv.setImageViewBitmap(R.id.edge_plus_prices_date, SetImageTypeface(priceModel.getTime(), (int) context.getResources().getDimension(R.dimen.edge_item_small), "Shabnam-FD"));
 
       switch (priceModel.getStatus()) {
         case "low":

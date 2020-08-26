@@ -20,12 +20,12 @@ package com.shalchian.sarrafi.db;
 import android.content.Context;
 
 import com.orhanobut.hawk.Hawk;
-import com.shalchian.sarrafi.model.PriceModelLegacy;
+import com.shalchian.sarrafi.model.PriceModel;
 
 import java.util.List;
 
 public class DatabaseManager {
-  private static final String KEY_EXCHANGE = "exchange";
+  private static final String KEY_EXCHANGE = "exchange_list";
   private static DatabaseManager databaseManager;
 
   public static DatabaseManager getInstance() {
@@ -43,16 +43,16 @@ public class DatabaseManager {
     Hawk.delete(KEY_EXCHANGE);
   }
 
-  public void setPriceList(List<PriceModelLegacy> priceList) {
+  public void setPriceList(List<PriceModel> priceList) {
     boolean status = Hawk.put(KEY_EXCHANGE, priceList);
   }
 
-  public List<PriceModelLegacy> getPriceList() {
+  public List<PriceModel> getPriceList() {
     return Hawk.get(KEY_EXCHANGE);
   }
 
   public boolean isPriceListAvailable() {
-    List<PriceModelLegacy> priceList = getPriceList();
+    List<PriceModel> priceList = getPriceList();
     return priceList != null && !priceList.isEmpty();
   }
 }

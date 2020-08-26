@@ -103,7 +103,6 @@ public class JSONParser {
 
   private static PriceModel addObject(String objectName, String name, JSONObject object, String toCurrency) {
     PriceModel priceModel = null;
-    Log.e("NAME PRICE",name);
     try {
       priceModel = new PriceModel(
               objectName,
