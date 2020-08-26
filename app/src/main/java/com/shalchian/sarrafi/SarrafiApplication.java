@@ -20,6 +20,7 @@ package com.shalchian.sarrafi;
 import android.app.Application;
 
 import com.shalchian.sarrafi.db.DatabaseManager;
+import com.androidnetworking.AndroidNetworking;
 
 public class SarrafiApplication extends Application {
 
@@ -27,5 +28,6 @@ public class SarrafiApplication extends Application {
   public void onCreate() {
     super.onCreate();
     DatabaseManager.getInstance().init(getApplicationContext());
+    AndroidNetworking.initialize(getApplicationContext());
   }
 }
