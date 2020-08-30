@@ -27,4 +27,9 @@
     <color name="white_grey">#F3F3F3</color>
     <color name="price_down">#DF10A8</color>
     <color name="price_up">#0FCC90</color>
+
+    <color name="money">#37946D</color>
+    <color name="gold">#A8823C</color>
+    <color name="oil">#6267C5</color>
+    <color name="digital_currency">#4493E6</color>
 </resources>

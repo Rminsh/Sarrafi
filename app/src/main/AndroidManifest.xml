@@ -23,7 +23,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
 
     <application
         android:name=".SarrafiApplication"
@@ -43,6 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.MainTabActivity"/>
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.DetailActivity" />
         <activity
@@ -55,7 +56,7 @@
             tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="com.samsung.android.cocktail.v2.action.COCKTAIL_UPDATE" />
-                <action android:name="com.shalchian.sarrafi.action.ACTION_PULL_TO_REFRESH"/>
+                <action android:name="com.shalchian.sarrafi.action.ACTION_PULL_TO_REFRESH" />
             </intent-filter>
 
             <meta-data

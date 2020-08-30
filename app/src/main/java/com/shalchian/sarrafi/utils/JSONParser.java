@@ -1,3 +1,21 @@
+
+/*
+ *     This file is part of Sarrafi.
+ *
+ *     Sarrafi is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     Sarrafi is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package com.shalchian.sarrafi.utils;
 
 import android.util.Log;
@@ -44,6 +62,9 @@ public class JSONParser {
       JSONObject oil        = jsonData.getJSONObject("oil");
       JSONObject oil_brent  = jsonData.getJSONObject("oil_brent");
       JSONObject oil_opec   = jsonData.getJSONObject("oil_opec");
+      JSONObject general_9  = jsonData.getJSONObject("general_9");
+      JSONObject general_10  = jsonData.getJSONObject("general_10");
+      JSONObject general_11  = jsonData.getJSONObject("general_11");
 
       JSONObject crypto_bitcoin = jsonData.getJSONObject("crypto-bitcoin");
       JSONObject crypto_ethereum = jsonData.getJSONObject("crypto-ethereum");
@@ -83,9 +104,12 @@ public class JSONParser {
       }
 
       if (checkedFilter.equals("oil") || checkedFilter.equals("")) {
-        list.add(addObject("oil","نفت سبک", oil, "دلار" ));
+        list.add(addObject("oil","نفت سبک (امریکا)", oil, "دلار" ));
         list.add(addObject("oil_brent","نفت برنت", oil_brent, "دلار" ));
         list.add(addObject("oil_opec","نفت اوپک", oil_opec, "دلار" ));
+        list.add(addObject("general_9","بنزین (گالن) (امریکا)", general_9, "دلار" ));
+        list.add(addObject("general_10","گاز طبیعی (امریکا)", general_10, "دلار" ));
+        list.add(addObject("general_11","گازوئیل (انگلیس)", general_11, "دلار" ));
       }
 
       if (checkedFilter.equals("digital_currency") || checkedFilter.equals("")) {
