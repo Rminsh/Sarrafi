@@ -37,6 +37,7 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.iammert.library.AnimatedTabLayout;
+import com.shalchian.sarrafi.BuildConfig;
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.fragment.CurrencyListFragment;
 import com.shalchian.sarrafi.fragment.DigitalCurrencyListFragment;
@@ -84,6 +85,7 @@ public class MainTabActivity extends AppCompatActivity {
 
     toolbar = findViewById(R.id.toolbar);
     toolbar.inflateMenu(R.menu.tab_menu);
+    toolbar.getMenu().findItem(R.id.menu_rate).setVisible(!BuildConfig.showUpdater);
 
     status_layout = findViewById(R.id.status_layout);
     status_animation = findViewById(R.id.status_animation);
@@ -107,6 +109,10 @@ public class MainTabActivity extends AppCompatActivity {
         case R.id.menu_about:
           Intent i = new Intent(getApplicationContext(), AboutActivity.class);
           startActivity(i);
+          return true;
+
+        case R.id.menu_rate:
+          ActivityHelper.rateUS(this, getBaseContext());
           return true;
 
         default:

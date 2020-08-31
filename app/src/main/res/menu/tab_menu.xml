@@ -16,10 +16,14 @@
   ~     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:title="@string/about"
         android:id="@+id/menu_about" />
+
+    <item
+        android:title="@string/rate_us"
+        android:id="@+id/menu_rate" />
 </menu>

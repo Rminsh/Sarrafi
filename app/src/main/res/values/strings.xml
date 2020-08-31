@@ -73,4 +73,7 @@
     <string name="download_later">بعدا دانلود میکنم</string>
     <string name="new_update_available">به‌روزرسانی جدید</string>
     <string name="new_update_available_detail">آپدیت جدید برای برنامه موجود است ، میخواهید دانلود کنید؟</string>
+    <string name="rate_us">به ما امتیاز دهید!</string>
+    <string name="rate_thanks">ممنون از امتیاز و نظرتون!</string>
+    <string name="rate_error">خطا در ارسال درخواست</string>
 </resources>
