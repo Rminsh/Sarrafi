@@ -98,8 +98,8 @@ public class JSONParser {
         list.add(addObject("geram18","طلای ۱۸ عیار", geram18, "ریال" ));
         list.add(addObject("mesghal","مثقال طلا", mesghal, "ریال" ));
         list.add(addObject("gerami","سکه گرمی", gerami, "ریال" ));
-        list.add(addObject("ons","انس طلا", ons, "ریال" ));
-        list.add(addObject("silver","انس نقره", silver, "ریال" ));
+        list.add(addObject("ons","انس طلا", ons, "دلار" ));
+        list.add(addObject("silver","انس نقره", silver, "دلار" ));
         list.add(addObject("gold_mini_size","طلای دست دوم", gold_mini_size, "ریال" ));
       }
 
