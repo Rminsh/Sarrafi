@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="aboutLibrariesCardBackground">@color/colorPrimaryLight</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryLight</item>
+
+        <!-- Customize your theme here. -->
+        <item name="material_dialog_background">@color/colorPrimaryLight</item>
+        <item name="material_dialog_title_text_color">@android:color/white</item>
+        <item name="material_dialog_message_text_color">#EAEAEA</item>
+        <item name="material_dialog_positive_button_color">#25292E</item>
+        <item name="material_dialog_positive_button_text_color">#FFFFFF</item>
+        <item name="material_dialog_negative_button_text_color">@android:color/white</item>
+    </style>
+
+    <!-- Preference Screen application theme -->
+    <style name="PreferenceScreen" parent="Theme.MaterialComponents">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+
+        <item name="android:textColor">@color/white_grey</item>
+        <item name="actionBarTheme">@style/ColoredActionBar</item>
+    </style>
+</resources>
