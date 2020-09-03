@@ -36,7 +36,6 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.iammert.library.AnimatedTabLayout;
 import com.shalchian.sarrafi.BuildConfig;
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.fragment.CurrencyListFragment;
@@ -45,6 +44,7 @@ import com.shalchian.sarrafi.fragment.GoldListFragment;
 import com.shalchian.sarrafi.fragment.OilListFragment;
 import com.shalchian.sarrafi.fragment.PricePagerAdapter;
 import com.shalchian.sarrafi.utils.ActivityHelper;
+import com.shalchian.sarrafi.utils.animatedTabLayout.AnimatedTabLayout;
 
 import org.json.JSONObject;
 

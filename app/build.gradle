@@ -16,6 +16,7 @@
  */
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'io.fabric'
 apply plugin: 'com.mikepenz.aboutlibraries.plugin'
@@ -73,6 +74,10 @@ dependencies {
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation 'com.google.android.material:material:1.3.0-alpha02'
 
+    //Kotlin libraries
+    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+
     //RTL ViewPager
     implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
 
@@ -111,9 +116,6 @@ dependencies {
 
     // Material Dialog Library
     implementation 'com.shreyaspatil:MaterialDialog:2.1'
-
-    //Animated TabLayout
-    implementation 'com.github.iammert:AnimatedTabLayout:0.1'
 
     //Google Play Core
     implementation 'com.google.android.play:core:1.8.0'

@@ -32,4 +32,7 @@
     <color name="gold">#A8823C</color>
     <color name="oil">#6267C5</color>
     <color name="digital_currency">#4493E6</color>
+
+    <color name="atl_icon_from_color">#818181</color>
+    <color name="atl_icon_to_color">#FFFFFF</color>
 </resources>
