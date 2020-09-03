@@ -82,7 +82,7 @@ public class OilListFragment extends Fragment implements SwipeRefreshLayout.OnRe
     try {
       String data = getArguments().getString(ARG_DATA_LIST);
       JSONObject response = new JSONObject(Objects.requireNonNull(data));
-      list.addAll(JSONParser.priceList(response, "oil"));
+      list.addAll(JSONParser.priceList(response, "oil", getContext()));
       recycler_view.setAdapter(adapter);
     } catch (JSONException e) {
       e.printStackTrace();

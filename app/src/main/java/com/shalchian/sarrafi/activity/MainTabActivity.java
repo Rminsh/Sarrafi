@@ -106,9 +106,14 @@ public class MainTabActivity extends AppCompatActivity {
 
       switch (item.getItemId()) {
 
+        case R.id.menu_settings:
+          Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+          startActivity(intent);
+          return true;
+
         case R.id.menu_about:
-          Intent i = new Intent(getApplicationContext(), AboutActivity.class);
-          startActivity(i);
+          intent = new Intent(getApplicationContext(), AboutActivity.class);
+          startActivity(intent);
           return true;
 
         case R.id.menu_rate:

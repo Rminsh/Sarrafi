@@ -99,7 +99,7 @@ public class EdgePlusList extends SlookCocktailProvider {
               @Override
               public void onResponse(JSONObject response) {
                 try {
-                  list.addAll(JSONParser.priceList(response, ""));
+                  list.addAll(JSONParser.priceList(response, "", context));
                   savePriceListToDatabase(list);
                   updatePriceListAdapter(context, cocktailId);
                 } catch (JSONException e) {

@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 try {
                   recyclerViewState = Objects.requireNonNull(recycler_view.getLayoutManager()).onSaveInstanceState();
                   list.clear();
-                  list.addAll(JSONParser.priceList(response, checkedFilter));
+                  list.addAll(JSONParser.priceList(response, checkedFilter, getBaseContext()));
 
                 } catch (JSONException e) {
                   showProblem(getResources().getString(R.string.error_parsing));

@@ -16,18 +16,18 @@
   ~     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:title="@string/settings"
-        android:id="@+id/menu_settings" />
+    <PreferenceCategory
+        app:title="@string/list_settings">
 
-    <item
-        android:title="@string/about"
-        android:id="@+id/menu_about" />
+        <SwitchPreferenceCompat
+            app:icon="@drawable/ic_swap"
+            app:key="toman"
+            app:summary="@string/toman_summery"
+            app:title="@string/toman_title" />
 
-    <item
-        android:title="@string/rate_us"
-        android:id="@+id/menu_rate" />
-</menu>
+    </PreferenceCategory>
+
+</PreferenceScreen>

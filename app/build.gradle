@@ -28,8 +28,8 @@ android {
         applicationId "com.shalchian.sarrafi"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 7
-        versionName "1.0.7"
+        versionCode 8
+        versionName "1.0.8"
         multiDexEnabled true
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
@@ -68,9 +68,12 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.google.android.material:material:1.3.0-alpha02'
+    implementation 'androidx.preference:preference:1.1.1'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'com.google.android.material:material:1.3.0-alpha02'
+
+    //RTL ViewPager
     implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
 
     //Firebase
@@ -114,4 +117,5 @@ dependencies {
 
     //Google Play Core
     implementation 'com.google.android.play:core:1.8.0'
+    
 }

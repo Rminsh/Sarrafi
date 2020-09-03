@@ -76,4 +76,10 @@
     <string name="rate_us">به ما امتیاز دهید!</string>
     <string name="rate_thanks">ممنون از امتیاز و نظرتون!</string>
     <string name="rate_error">خطا در ارسال درخواست</string>
+
+    <string name="settings">تنظیمات</string>
+    <string name="toman_summery">نمایش تومان بجای ریال</string>
+    <string name="toman_title">نمایش تومان</string>
+    <string name="list_settings">تنظیمات لیست</string>
+    <string name="refresh_list">برای ذخیره کردن تغییرات، برنامه را دوباره اجرا کنید یا لیست را ریفرش کنید</string>
 </resources>

@@ -82,7 +82,7 @@ public class DigitalCurrencyListFragment extends Fragment implements SwipeRefres
     try {
       String data = getArguments().getString(ARG_DATA_LIST);
       JSONObject response = new JSONObject(Objects.requireNonNull(data));
-      list.addAll(JSONParser.priceList(response, "digital_currency"));
+      list.addAll(JSONParser.priceList(response, "digital_currency", getContext()));
       recycler_view.setAdapter(adapter);
     } catch (JSONException e) {
       e.printStackTrace();

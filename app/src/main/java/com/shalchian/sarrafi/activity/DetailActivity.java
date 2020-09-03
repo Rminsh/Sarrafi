@@ -24,6 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -37,6 +38,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.model.Progress;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.IMarker;
 import com.github.mikephil.charting.components.XAxis;
@@ -47,7 +49,6 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -61,7 +62,9 @@ import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import com.shalchian.sarrafi.R;
+import com.shalchian.sarrafi.model.PriceTableModel;
 import com.shalchian.sarrafi.utils.ActivityHelper;
+import com.shalchian.sarrafi.utils.JSONParser;
 import com.shalchian.sarrafi.utils.TableMarker;
 
 public class DetailActivity extends AppCompatActivity {
@@ -89,20 +92,7 @@ public class DetailActivity extends AppCompatActivity {
   String PERCENT_CHANGE;
   String PERCENT_CHANGE_RAW;
 
-  List<String> dateMonthly;
-  List<Float> pricesMonthly;
-
-  List<String> dateDaily;
-  List<Float> pricesDaily;
-
-  List<String> dateThreeMonths;
-  List<Float> pricesThreeMonths;
-
-  List<String> dateSixMonths;
-  List<Float> pricesSixMonths;
-
-  List<String> dateAllMonths;
-  List<Float> pricesAllMonths;
+  PriceTableModel priceTableModel;
 
   @Override
   protected void attachBaseContext(Context newBase) {
@@ -229,21 +219,6 @@ public class DetailActivity extends AppCompatActivity {
     chart.setExtraRightOffset(getResources().getDimension(R.dimen.table_margin));
     chart.getLegend().setEnabled(false);
 
-    dateDaily = new ArrayList<>();
-    pricesDaily = new ArrayList<>();
-
-    dateMonthly = new ArrayList<>();
-    pricesMonthly = new ArrayList<>();
-
-    dateThreeMonths = new ArrayList<>();
-    pricesThreeMonths = new ArrayList<>();
-
-    dateSixMonths = new ArrayList<>();
-    pricesSixMonths = new ArrayList<>();
-
-    dateAllMonths = new ArrayList<>();
-    pricesAllMonths = new ArrayList<>();
-
     getData();
   }
 
@@ -265,7 +240,6 @@ public class DetailActivity extends AppCompatActivity {
 
   void getData() {
     hideChart();
-    Log.e("✅ RES", "GETTING DATA");
     AndroidNetworking
             .get("https://www.tgju.org/")
             .addQueryParameter("act","chart-api")
@@ -278,100 +252,11 @@ public class DetailActivity extends AppCompatActivity {
             .getAsJSONObject(new JSONObjectRequestListener() {
               @Override
               public void onResponse(JSONObject response) {
-                showChart();
-                try {
-                  // Get Today Chart
-                  JSONArray today_table = response.getJSONArray("today_table");
-                  for (int i = today_table.length() - 1; i >= 0; i--) {
-                    try {
-                      JSONObject jo = today_table.getJSONObject(i);
-                      String time = jo.getString("time");
-                      float price = Float.parseFloat(jo.getString("price").replace(",", ""));
-                      dateDaily.add(time);
-                      pricesDaily.add(price);
-                    } catch (JSONException e) {
-                      Log.e("🔴ERROR Parse Daily", String.valueOf(e));
-                    }
-                  }
-                  // if today chart is empty, Hide the chip filter
-                  if (dateDaily.isEmpty() && pricesDaily.isEmpty())
-                    detail_daily_chip.setVisibility(View.GONE);
 
-                  // Get Monthly Chart
-                  String chart_1 = "[" + response.getString("chart_1").replaceFirst(".$","") + "]";
-                  JSONArray chart_1_Array = new JSONArray(chart_1);
-
-                  for (int i = 0; i < chart_1_Array.length(); i++) {
-                    try {
-                      JSONObject jo = chart_1_Array.getJSONObject(i);
-                      String date_string = jo.getString("jdate");
-                      date_string = date_string.substring(date_string.indexOf("/") + 1);
-                      dateMonthly.add(date_string);
-                      pricesMonthly.add((float) jo.getDouble("value"));
-                    } catch (JSONException e) {
-                      Log.e("🔴ERROR Parse Monthly", String.valueOf(e));
-                    }
-                  }
-                  // if monthly chart is empty, Hide the chip filter
-                  if (dateMonthly.isEmpty() && pricesMonthly.isEmpty()) {
-                    detail_monthly_chip.setVisibility(View.GONE);
-                    checkedFilter = "3MONTHS";
-                  }
-
-                  // Get 3 Months Chart
-                  String chart_3 = "[" + response.getString("chart_3").replaceFirst(".$","") + "]";
-                  JSONArray chart_3_Array = new JSONArray(chart_3);
-
-                  for (int i = 0; i < chart_3_Array.length(); i++) {
-                    try {
-                      JSONObject jo = chart_3_Array.getJSONObject(i);
-                      String date_string = jo.getString("jdate");
-                      date_string = date_string.substring(date_string.indexOf("/") + 1);
-                      dateThreeMonths.add(date_string);
-                      pricesThreeMonths.add((float) jo.getDouble("value"));
-                    } catch (JSONException e) {
-                      Log.e("🔴ERROR Parse 3 Months", String.valueOf(e));
-                    }
-                  }
-
-                  // Get 6 Months Chart
-                  String chart_6 = "[" + response.getString("chart_6").replaceFirst(".$","") + "]";
-                  JSONArray chart_6_Array = new JSONArray(chart_6);
-
-                  for (int i = 0; i < chart_6_Array.length(); i++) {
-                    try {
-                      JSONObject jo = chart_6_Array.getJSONObject(i);
-                      String date_string = jo.getString("jdate");
-                      date_string = date_string.substring(date_string.indexOf("/") + 1);
-                      dateSixMonths.add(date_string);
-                      pricesSixMonths.add((float) jo.getDouble("value"));
-                    } catch (JSONException e) {
-                      Log.e("🔴ERROR Parse 6 Months", String.valueOf(e));
-                    }
-                  }
-
-                  // Get Chart Summery
-                  String chart_summary = "[" + response.getString("chart_summary") + "]";
-                  JSONArray chart_summary_Array = new JSONArray(chart_summary);
-
-                  for (int i = 0; i < chart_summary_Array.length(); i++) {
-                    try {
-                      JSONObject jo = chart_summary_Array.getJSONObject(i);
-                      String date_string = jo.getString("jdate");
-                      int index = date_string.lastIndexOf('/');
-                      dateAllMonths.add(date_string.substring(0,index));
-                      pricesAllMonths.add((float) jo.getDouble("value"));
-                    } catch (JSONException e) {
-                      Log.e("🔴ERROR Parse All", String.valueOf(e));
-                    }
-                  }
-
-                  //Load filters
-                  loadChips();
-
-                } catch (JSONException e) {
-                  Log.e("🔴 ERROR Parse", String.valueOf(e));
-                }
+                // Get Chart
+                boolean isToman = CURRENCY_TYPE.equals("تومان");
+                TableAsyncTask task = new TableAsyncTask();
+                task.execute(new TableTaskParams(response, isToman));
               }
 
               @Override
@@ -433,28 +318,28 @@ public class DetailActivity extends AppCompatActivity {
     switch (checkedFilter) {
       case "DAILY":
         tableChipGroup.check(R.id.detail_daily_chip);
-        setDateChart(dateDaily);
-        setDataChart(pricesDaily);
+        setDateChart(priceTableModel.getDateDaily());
+        setDataChart(priceTableModel.getPricesDaily());
         break;
       case "MONTHLY":
         tableChipGroup.check(R.id.detail_monthly_chip);
-        setDateChart(dateMonthly);
-        setDataChart(pricesMonthly);
+        setDateChart(priceTableModel.getDateMonthly());
+        setDataChart(priceTableModel.getPricesMonthly());
         break;
       case "3MONTHS":
         tableChipGroup.check(R.id.detail_three_months_chip);
-        setDateChart(dateThreeMonths);
-        setDataChart(pricesThreeMonths);
+        setDateChart(priceTableModel.getDateThreeMonths());
+        setDataChart(priceTableModel.getPricesThreeMonths());
         break;
       case "6MONTHS":
         tableChipGroup.check(R.id.detail_six_months_chip);
-        setDateChart(dateSixMonths);
-        setDataChart(pricesSixMonths);
+        setDateChart(priceTableModel.getDateSixMonths());
+        setDataChart(priceTableModel.getPricesSixMonths());
         break;
       case "ALL":
         tableChipGroup.check(R.id.detail_all_chip);
-        setDateChart(dateAllMonths);
-        setDataChart(pricesAllMonths);
+        setDateChart(priceTableModel.getDateAllMonths());
+        setDataChart(priceTableModel.getPricesAllMonths());
         break;
     }
 
@@ -463,32 +348,32 @@ public class DetailActivity extends AppCompatActivity {
         case R.id.detail_daily_chip:
           checkedFilter = "DAILY";
           chart.clearValues();
-          setDateChart(dateDaily);
-          setDataChart(pricesDaily);
+          setDateChart(priceTableModel.getDateDaily());
+          setDataChart(priceTableModel.getPricesDaily());
           break;
         case R.id.detail_monthly_chip:
           chart.clearValues();
           checkedFilter = "MONTHLY";
-          setDateChart(dateMonthly);
-          setDataChart(pricesMonthly);
+          setDateChart(priceTableModel.getDateMonthly());
+          setDataChart(priceTableModel.getPricesMonthly());
           break;
         case R.id.detail_three_months_chip:
           chart.clearValues();
           checkedFilter = "3MONTHS";
-          setDateChart(dateThreeMonths);
-          setDataChart(pricesThreeMonths);
+          setDateChart(priceTableModel.getDateThreeMonths());
+          setDataChart(priceTableModel.getPricesThreeMonths());
           break;
         case R.id.detail_six_months_chip:
           chart.clearValues();
           checkedFilter = "6MONTHS";
-          setDateChart(dateSixMonths);
-          setDataChart(pricesSixMonths);
+          setDateChart(priceTableModel.getDateSixMonths());
+          setDataChart(priceTableModel.getPricesSixMonths());
           break;
         case R.id.detail_all_chip:
           chart.clearValues();
           checkedFilter = "ALL";
-          setDateChart(dateAllMonths);
-          setDataChart(pricesAllMonths);
+          setDateChart(priceTableModel.getDateAllMonths());
+          setDataChart(priceTableModel.getPricesAllMonths());
           break;
       }
     });
@@ -504,5 +389,47 @@ public class DetailActivity extends AppCompatActivity {
     chart.setVisibility(View.VISIBLE);
     tableChipGroup.setVisibility(View.VISIBLE);
     table_progressbar.setVisibility(View.GONE);
+  }
+
+  private static class TableTaskParams {
+    boolean isToman;
+    JSONObject response;
+
+    TableTaskParams(JSONObject response, boolean isToman) {
+      this.response = response;
+      this.isToman = isToman;
+    }
+  }
+
+  private class TableAsyncTask extends AsyncTask<TableTaskParams, Progress, PriceTableModel> {
+
+    @Override
+    protected PriceTableModel doInBackground(TableTaskParams... params) {
+      PriceTableModel model = new PriceTableModel();
+      try {
+        model = JSONParser.priceTableList(params[0].response, params[0].isToman);
+      } catch (JSONException e) {
+        e.printStackTrace();
+      }
+      return model;
+    }
+
+    @Override
+    protected void onPostExecute(PriceTableModel result) {
+      priceTableModel = result;
+
+      // if today chart is empty, Hide the chip filter
+      if (priceTableModel.getDateDaily().isEmpty() && priceTableModel.getPricesDaily().isEmpty())
+        detail_daily_chip.setVisibility(View.GONE);
+
+      // if monthly chart is empty, Hide the chip filter
+      if (priceTableModel.getDateMonthly().isEmpty() && priceTableModel.getPricesMonthly().isEmpty()) {
+        detail_monthly_chip.setVisibility(View.GONE);
+        checkedFilter = "3MONTHS";
+      }
+      //Load filters and chart
+      loadChips();
+      showChart();
+    }
   }
 }

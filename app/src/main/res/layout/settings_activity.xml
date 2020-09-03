@@ -16,18 +16,13 @@
   ~     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl">
 
-    <item
-        android:title="@string/settings"
-        android:id="@+id/menu_settings" />
-
-    <item
-        android:title="@string/about"
-        android:id="@+id/menu_about" />
-
-    <item
-        android:title="@string/rate_us"
-        android:id="@+id/menu_rate" />
-</menu>
+    <FrameLayout
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

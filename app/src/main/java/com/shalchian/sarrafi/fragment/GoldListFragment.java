@@ -82,7 +82,7 @@ public class GoldListFragment extends Fragment implements SwipeRefreshLayout.OnR
     try {
       String data = getArguments().getString(ARG_DATA_LIST);
       JSONObject response = new JSONObject(Objects.requireNonNull(data));
-      list.addAll(JSONParser.priceList(response, "gold"));
+      list.addAll(JSONParser.priceList(response, "gold", getContext()));
       recycler_view.setAdapter(adapter);
     } catch (JSONException e) {
       e.printStackTrace();

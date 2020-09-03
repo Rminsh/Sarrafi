@@ -40,6 +40,21 @@
         <item name="material_dialog_negative_button_text_color">@android:color/white</item>
     </style>
 
+    <!-- Preference Screen application theme -->
+    <style name="PreferenceScreen" parent="Theme.MaterialComponents">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+
+        <item name="android:textColor">@color/white_grey</item>
+        <item name="actionBarTheme">@style/ColoredActionBar</item>
+    </style>
+
+    <style name="ColoredActionBar" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
     <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
     </style>

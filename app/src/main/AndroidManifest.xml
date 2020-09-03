@@ -43,9 +43,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainTabActivity"/>
+        <activity android:name=".activity.MainTabActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.DetailActivity" />
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/settings"
+            android:theme="@style/PreferenceScreen"/>
         <activity
             android:name=".activity.AboutActivity"
             android:theme="@style/AppTheme.MaterialAboutActivity" />
