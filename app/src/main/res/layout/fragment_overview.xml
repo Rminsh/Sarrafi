@@ -18,6 +18,7 @@
 
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_page_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -28,6 +29,7 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:columnWidth="@dimen/column_width"
-        android:padding="@dimen/activity_horizontal_margin" />
+        android:padding="@dimen/activity_horizontal_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
