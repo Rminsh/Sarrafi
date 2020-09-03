@@ -66,7 +66,7 @@ public class OilListFragment extends Fragment implements SwipeRefreshLayout.OnRe
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View root = inflater.inflate(R.layout.fragment_overview, container, false);
-    recycler_view = root.findViewById(R.id.classroom_news_rcv);
+    recycler_view = root.findViewById(R.id.price_rcv);
     recycler_view.setHasFixedSize(true);
 
     swipeRefreshLayout = root.findViewById(R.id.main_page_refresh);

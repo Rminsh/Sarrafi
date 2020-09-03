@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     toolbar = findViewById(R.id.toolbar);
     toolbar.inflateMenu(R.menu.main_menu);
 
-    recycler_view = findViewById(R.id.classroom_news_rcv);
+    recycler_view = findViewById(R.id.price_rcv);
     status_layout = findViewById(R.id.status_layout);
     status_animation = findViewById(R.id.status_animation);
     status_text = findViewById(R.id.status_text);

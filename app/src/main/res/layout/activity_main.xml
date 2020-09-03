@@ -63,7 +63,7 @@
             android:layout_height="match_parent">
 
             <com.shalchian.sarrafi.utils.AutoFitRecyclerView
-                android:id="@+id/classroom_news_rcv"
+                android:id="@+id/price_rcv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"

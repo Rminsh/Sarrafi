@@ -21,6 +21,7 @@ package com.shalchian.sarrafi.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -31,7 +32,6 @@ import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.androidnetworking.AndroidNetworking;
@@ -69,7 +69,7 @@ import com.shalchian.sarrafi.utils.TableMarker;
 
 public class DetailActivity extends AppCompatActivity {
 
-  ScrollView scrollView;
+  NestedScrollView scrollView;
   View parent_chart_frame;
   LineChart chart;
   ProgressBar table_progressbar;
