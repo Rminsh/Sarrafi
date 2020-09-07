@@ -49,7 +49,7 @@
         <activity
             android:name=".activity.SettingsActivity"
             android:label="@string/settings"
-            android:theme="@style/PreferenceScreen"/>
+            android:theme="@style/PreferenceScreen" />
         <activity
             android:name=".activity.AboutActivity"
             android:theme="@style/AppTheme.MaterialAboutActivity" />

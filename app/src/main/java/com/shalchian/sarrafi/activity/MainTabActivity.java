@@ -22,13 +22,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -45,8 +48,12 @@ import com.shalchian.sarrafi.fragment.OilListFragment;
 import com.shalchian.sarrafi.fragment.PricePagerAdapter;
 import com.shalchian.sarrafi.utils.ActivityHelper;
 import com.shalchian.sarrafi.utils.animatedTabLayout.AnimatedTabLayout;
+import com.shreyaspatil.material.navigationview.MaterialNavigationView;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
+
+import java.util.Objects;
 
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
@@ -55,6 +62,9 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class MainTabActivity extends AppCompatActivity {
 
+  MaterialNavigationView navigationView;
+  DrawerLayout drawerLayout;
+  ActionBarDrawerToggle toggle;
   View status_layout;
   LottieAnimationView status_animation;
   TextView status_text;
@@ -78,20 +88,29 @@ public class MainTabActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     ViewPump.init(ViewPump.builder().addInterceptor(new CalligraphyInterceptor(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/Shabnam-FD.ttf").setFontAttrId(R.attr.fontPath).build())).build());
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main_tab);
+    setContentView(R.layout.activity_navigation);
 
+    drawerLayout = findViewById(R.id.drawer_layout);
+    toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+    navigationView = findViewById(R.id.nav_view);
     viewPager = findViewById(R.id.view_pager);
     tabs = findViewById(R.id.tabs);
 
     toolbar = findViewById(R.id.toolbar);
-    toolbar.inflateMenu(R.menu.tab_menu);
-    toolbar.getMenu().findItem(R.id.menu_rate).setVisible(!BuildConfig.showUpdater);
+    setSupportActionBar(toolbar);
+
+    //TODO: REMOVE Menu Rate from Drawer (Build Config option)
+    //toolbar.getMenu().findItem(R.id.menu_rate).setVisible(!BuildConfig.showUpdater);
 
     status_layout = findViewById(R.id.status_layout);
     status_animation = findViewById(R.id.status_animation);
     status_text = findViewById(R.id.status_text);
     status_button = findViewById(R.id.status_button);
 
+    drawerLayout.addDrawerListener(toggle);
+    toggle.syncState();
+    Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+    getSupportActionBar().setTitle(null);
     checkConnection();
 
     status_button.setOnClickListener(view -> {
@@ -102,27 +121,28 @@ public class MainTabActivity extends AppCompatActivity {
       checkConnection();
     });
 
-    toolbar.setOnMenuItemClickListener(item -> {
+    navigationView.setNavigationItemSelectedListener(item -> {
+      if (drawerLayout != null) {
+        drawerLayout.closeDrawers();
+      }
 
-      switch (item.getItemId()) {
+      switch(item.getItemId()) {
 
-        case R.id.menu_settings:
+        case R.id.nav_settings:
           Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
           startActivity(intent);
-          return true;
-
-        case R.id.menu_about:
+          return false;
+        case R.id.nav_about:
           intent = new Intent(getApplicationContext(), AboutActivity.class);
           startActivity(intent);
-          return true;
-
-        case R.id.menu_rate:
+          return false;
+        case R.id.nav_rate:
           ActivityHelper.rateUS(this, getBaseContext());
-          return true;
-
+          return false;
         default:
           return false;
       }
+
     });
 
     ActivityHelper.checkUpdate(this, getBaseContext());
@@ -182,6 +202,14 @@ public class MainTabActivity extends AppCompatActivity {
     status_animation.playAnimation();
     status_text.setText(error);
     status_button.setVisibility(View.VISIBLE);
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(@NotNull MenuItem item) {
+    if(toggle.onOptionsItemSelected(item))
+      return true;
+
+    return super.onOptionsItemSelected(item);
   }
 
 }
