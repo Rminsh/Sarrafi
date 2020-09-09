@@ -84,5 +84,22 @@
     <string name="refresh_list">برای ذخیره کردن تغییرات، برنامه را دوباره اجرا کنید یا لیست را ریفرش کنید</string>
     <string name="open">باز کردن</string>
     <string name="close">بستن</string>
+
     <string name="calculator">تبدیل مقیاس</string>
+    <string name="amount">مقدار</string>
+
+    <string name="rial">ریال</string>
+    <string name="dollar">دلار امریکا</string>
+    <string name="dollar_soleymani">دلار سلیمانیه</string>
+    <string name="euro">یورو</string>
+    <string name="pound">پوند انگلیس</string>
+    <string name="dirham">درهم امارات</string>
+    <string name="dollar_canada">دلار کانادا</string>
+    <string name="lira">لیر ترکیه</string>
+    <string name="yuan">یوان چین</string>
+    <string name="yen">ین ژاپن</string>
+    <string name="afghani">افغانی</string>
+    <string name="dinar_iraq">دینار عراق</string>
+    <string name="ringgit_malaysian">رینگت مالزی</string>
+    <string name="rouble">روبل روسیه</string>
 </resources>

@@ -24,8 +24,10 @@ import android.util.Log;
 
 import androidx.preference.PreferenceManager;
 
+import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.model.PriceModel;
 import com.shalchian.sarrafi.model.PriceTableModel;
+import com.shalchian.sarrafi.model.UnitItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -86,19 +88,19 @@ public class JSONParser {
       JSONObject crypto_stellar = jsonData.getJSONObject("crypto-stellar");
 
       if (checkedFilter.equals("currency") || checkedFilter.equals("")) {
-        list.add(addObject("price_dollar_rl","دلار", price_dollar_rl, iran_currency, tomanConvert ));
-        list.add(addObject("price_dollar_soleymani","دلار سلیمانیه", price_dollar_soleymani, iran_currency, tomanConvert ));
-        list.add(addObject("price_eur","یورو", price_eur, iran_currency, tomanConvert ));
-        list.add(addObject("price_cad","دلار کانادا", price_cad, iran_currency, tomanConvert ));
-        list.add(addObject("price_gbp","پوند انگلیس", price_gbp, iran_currency, tomanConvert ));
-        list.add(addObject("price_aed","درهم امارات", price_aed, iran_currency, tomanConvert ));
-        list.add(addObject("price_try","لیر ترکیه", price_try, iran_currency, tomanConvert ));
-        list.add(addObject("price_cny","یوان چین", price_cny, iran_currency, tomanConvert ));
-        list.add(addObject("price_jpy","ین ژاپن", price_jpy, iran_currency, tomanConvert ));
-        list.add(addObject("price_afn","افغانی", price_afn, iran_currency, tomanConvert ));
-        list.add(addObject("price_iqd","دینار عراق", price_iqd, iran_currency, tomanConvert ));
-        list.add(addObject("price_myr","رینگت مالزی", price_myr, iran_currency, tomanConvert ));
-        list.add(addObject("price_rub","روبل روسیه", price_rub, iran_currency, tomanConvert ));
+        list.add(addObject("price_dollar_rl",context.getResources().getString(R.string.dollar), price_dollar_rl, iran_currency, tomanConvert ));
+        list.add(addObject("price_dollar_soleymani",context.getResources().getString(R.string.dollar_soleymani), price_dollar_soleymani, iran_currency, tomanConvert ));
+        list.add(addObject("price_eur",context.getResources().getString(R.string.euro), price_eur, iran_currency, tomanConvert ));
+        list.add(addObject("price_cad",context.getResources().getString(R.string.dollar_canada), price_cad, iran_currency, tomanConvert ));
+        list.add(addObject("price_gbp",context.getResources().getString(R.string.pound), price_gbp, iran_currency, tomanConvert ));
+        list.add(addObject("price_aed",context.getResources().getString(R.string.dirham), price_aed, iran_currency, tomanConvert ));
+        list.add(addObject("price_try",context.getResources().getString(R.string.lira), price_try, iran_currency, tomanConvert ));
+        list.add(addObject("price_cny",context.getResources().getString(R.string.yuan), price_cny, iran_currency, tomanConvert ));
+        list.add(addObject("price_jpy",context.getResources().getString(R.string.yen), price_jpy, iran_currency, tomanConvert ));
+        list.add(addObject("price_afn",context.getResources().getString(R.string.afghani), price_afn, iran_currency, tomanConvert ));
+        list.add(addObject("price_iqd",context.getResources().getString(R.string.dinar_iraq), price_iqd, iran_currency, tomanConvert ));
+        list.add(addObject("price_myr",context.getResources().getString(R.string.ringgit_malaysian), price_myr, iran_currency, tomanConvert ));
+        list.add(addObject("price_rub",context.getResources().getString(R.string.rouble), price_rub, iran_currency, tomanConvert ));
       }
 
       if (checkedFilter.equals("gold") || checkedFilter.equals("")) {
@@ -297,6 +299,43 @@ public class JSONParser {
     model.setPricesAllMonths(pricesAllMonths);
 
     return model;
+  }
+
+  public static ArrayList<UnitItem> priceConverterList(JSONObject response, Context context) throws JSONException {
+    ArrayList<UnitItem> unitItems = new ArrayList<>();
+    JSONObject jsonData = response.optJSONObject("current");
+    if (jsonData != null) {
+      double rial = 1.0;
+      double dollar = Double.parseDouble(jsonData.getJSONObject("price_dollar_rl").getString("p").replace(",", ""));
+      double dollar_soleymani = Double.parseDouble(jsonData.getJSONObject("price_dollar_soleymani").getString("p").replace(",", ""));
+      double euro = Double.parseDouble(jsonData.getJSONObject("price_eur").getString("p").replace(",", ""));
+      double dollar_canada = Double.parseDouble(jsonData.getJSONObject("price_cad").getString("p").replace(",", ""));
+      double pound = Double.parseDouble(jsonData.getJSONObject("price_gbp").getString("p").replace(",", ""));
+      double dirham = Double.parseDouble(jsonData.getJSONObject("price_aed").getString("p").replace(",", ""));
+      double lira = Double.parseDouble(jsonData.getJSONObject("price_try").getString("p").replace(",", ""));
+      double yuan = Double.parseDouble(jsonData.getJSONObject("price_cny").getString("p").replace(",", ""));
+      double yen = Double.parseDouble(jsonData.getJSONObject("price_jpy").getString("p").replace(",", ""));
+      double afghani = Double.parseDouble(jsonData.getJSONObject("price_afn").getString("p").replace(",", ""));
+      double dinar = Double.parseDouble(jsonData.getJSONObject("price_iqd").getString("p").replace(",", ""));
+      double ringgit = Double.parseDouble(jsonData.getJSONObject("price_myr").getString("p").replace(",", ""));
+      double rouble = Double.parseDouble(jsonData.getJSONObject("price_rub").getString("p").replace(",", ""));
+
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.rial), R.drawable.flag_ir, rial));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar), R.drawable.flag_us, dollar));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar_soleymani), R.drawable.flag_us, dollar_soleymani));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.euro), R.drawable.flag_eu, euro));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar_canada), R.drawable.flag_ca, dollar_canada));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.pound), R.drawable.flag_uk, pound));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.dirham), R.drawable.flag_ae, dirham));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.lira), R.drawable.flag_tr, lira));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.yuan), R.drawable.flag_cn, yuan));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.yen), R.drawable.flag_jp, yen));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.afghani), R.drawable.flag_af, afghani));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.dinar_iraq), R.drawable.flag_iq, dinar));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.ringgit_malaysian), R.drawable.flag_my, ringgit));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.rouble), R.drawable.flag_ru, rouble));
+    }
+    return unitItems;
   }
 
   public static String changeToToman(String price, boolean commaNeeded) {

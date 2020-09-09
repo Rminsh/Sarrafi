@@ -46,6 +46,7 @@
         <activity android:name=".activity.MainTabActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.DetailActivity" />
+        <activity android:name=".activity.CalculatorActivity" />
         <activity
             android:name=".activity.SettingsActivity"
             android:label="@string/settings"

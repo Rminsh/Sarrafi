@@ -4,10 +4,10 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <!-- <item
+        <item
             android:id="@+id/nav_calculator"
             android:icon="@drawable/ic_calculator"
-            android:title="@string/calculator" />-->
+            android:title="@string/calculator" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings"

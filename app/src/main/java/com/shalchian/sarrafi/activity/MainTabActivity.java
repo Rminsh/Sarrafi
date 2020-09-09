@@ -127,9 +127,12 @@ public class MainTabActivity extends AppCompatActivity {
       }
 
       switch(item.getItemId()) {
-
+        case R.id.nav_calculator:
+          Intent intent = new Intent(getApplicationContext(), CalculatorActivity.class);
+          startActivity(intent);
+          return false;
         case R.id.nav_settings:
-          Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+          intent = new Intent(getApplicationContext(), SettingsActivity.class);
           startActivity(intent);
           return false;
         case R.id.nav_about:
