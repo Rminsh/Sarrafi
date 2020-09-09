@@ -40,6 +40,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.adapter.UnitAdapter;
 import com.shalchian.sarrafi.model.UnitItem;
@@ -72,6 +73,7 @@ public class CalculatorActivity extends AppCompatActivity {
   Spinner spinnerSecond;
   EditText editTextFirst;
   EditText editTextSecond;
+  FloatingActionButton reverseFab;
   Double firstValue;
   Double secondValue;
   String mainUrl = "https://call.tgju.org/ajax.json";
@@ -110,6 +112,7 @@ public class CalculatorActivity extends AppCompatActivity {
     spinnerSecond = findViewById(R.id.spinner_second);
     editTextFirst = findViewById(R.id.edit_text_first);
     editTextSecond = findViewById(R.id.edit_text_second);
+    reverseFab = findViewById(R.id.fab_reverse);
 
     unitItems = new ArrayList<>();
     unitAdapter = new UnitAdapter(this, unitItems);
@@ -159,6 +162,13 @@ public class CalculatorActivity extends AppCompatActivity {
           calculate();
         }
       }
+    });
+
+    reverseFab.setOnClickListener(view -> {
+      int firstPos = spinnerFirst.getSelectedItemPosition();
+      int secondPos = spinnerSecond.getSelectedItemPosition();
+      spinnerFirst.setSelection(secondPos);
+      spinnerSecond.setSelection(firstPos);
     });
   }
 
