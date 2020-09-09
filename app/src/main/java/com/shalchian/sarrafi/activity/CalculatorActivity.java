@@ -24,6 +24,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 
 import android.content.Context;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -74,6 +77,8 @@ public class CalculatorActivity extends AppCompatActivity {
   EditText editTextFirst;
   EditText editTextSecond;
   FloatingActionButton reverseFab;
+  AnimatedVectorDrawable animatedVectorDrawable;
+  Drawable animationDrawable;
   Double firstValue;
   Double secondValue;
   String mainUrl = "https://call.tgju.org/ajax.json";
@@ -113,6 +118,11 @@ public class CalculatorActivity extends AppCompatActivity {
     editTextFirst = findViewById(R.id.edit_text_first);
     editTextSecond = findViewById(R.id.edit_text_second);
     reverseFab = findViewById(R.id.fab_reverse);
+    animationDrawable = reverseFab.getDrawable();
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      animatedVectorDrawable = (AnimatedVectorDrawable) animationDrawable;
+    }
 
     unitItems = new ArrayList<>();
     unitAdapter = new UnitAdapter(this, unitItems);
@@ -169,6 +179,10 @@ public class CalculatorActivity extends AppCompatActivity {
       int secondPos = spinnerSecond.getSelectedItemPosition();
       spinnerFirst.setSelection(secondPos);
       spinnerSecond.setSelection(firstPos);
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        animatedVectorDrawable.start();
+      }
     });
   }
 
