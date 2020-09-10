@@ -47,6 +47,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.adapter.UnitAdapter;
 import com.shalchian.sarrafi.model.UnitItem;
+import com.shalchian.sarrafi.utils.ActivityHelper;
 import com.shalchian.sarrafi.utils.JSONParser;
 
 import org.json.JSONException;
@@ -127,7 +128,15 @@ public class CalculatorActivity extends AppCompatActivity {
     unitItems = new ArrayList<>();
     unitAdapter = new UnitAdapter(this, unitItems);
 
-    getData();
+    checkConnection();
+
+    status_button.setOnClickListener(view -> {
+      status_button.setVisibility(View.GONE);
+      status_animation.setAnimation("loading_animation.json");
+      status_animation.playAnimation();
+      status_text.setText("");
+      checkConnection();
+    });
 
     spinnerFirst.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
       @Override
@@ -185,6 +194,14 @@ public class CalculatorActivity extends AppCompatActivity {
         animatedVectorDrawable.start();
       }
     });
+  }
+
+  public void checkConnection() {
+    if (ActivityHelper.checkConnection(getBaseContext())) {
+      getData();
+    } else {
+      showProblem(getResources().getString(R.string.no_network));
+    }
   }
 
   public void getData() {
