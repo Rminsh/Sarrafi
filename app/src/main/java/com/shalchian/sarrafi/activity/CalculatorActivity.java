@@ -181,6 +181,7 @@ public class CalculatorActivity extends AppCompatActivity {
       spinnerSecond.setSelection(firstPos);
 
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        //TODO: Bug at duplicated animation
         animatedVectorDrawable.start();
       }
     });
