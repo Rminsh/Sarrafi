@@ -54,7 +54,8 @@
                 android:focusable="true"
                 android:textSize="25sp"
                 android:inputType="number"
-                android:autofillHints="@string/amount" />
+                android:autofillHints="@string/amount"
+                android:imeOptions="actionDone" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
