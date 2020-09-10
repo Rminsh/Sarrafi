@@ -99,14 +99,12 @@ public class MainTabActivity extends AppCompatActivity {
     toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
-    //TODO: REMOVE Menu Rate from Drawer (Build Config option)
-    //toolbar.getMenu().findItem(R.id.menu_rate).setVisible(!BuildConfig.showUpdater);
-
     status_layout = findViewById(R.id.status_layout);
     status_animation = findViewById(R.id.status_animation);
     status_text = findViewById(R.id.status_text);
     status_button = findViewById(R.id.status_button);
 
+    navigationView.getMenu().findItem(R.id.nav_rate).setVisible(!BuildConfig.showUpdater);
     drawerLayout.addDrawerListener(toggle);
     toggle.syncState();
     Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
