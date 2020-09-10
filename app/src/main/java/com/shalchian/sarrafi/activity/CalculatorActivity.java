@@ -43,7 +43,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.adapter.UnitAdapter;
 import com.shalchian.sarrafi.model.UnitItem;
@@ -76,7 +76,7 @@ public class CalculatorActivity extends AppCompatActivity {
   Spinner spinnerSecond;
   EditText editTextFirst;
   EditText editTextSecond;
-  FloatingActionButton reverseFab;
+  ExtendedFloatingActionButton reverseFab;
   AnimatedVectorDrawable animatedVectorDrawable;
   Drawable animationDrawable;
   Double firstValue;
@@ -118,7 +118,7 @@ public class CalculatorActivity extends AppCompatActivity {
     editTextFirst = findViewById(R.id.edit_text_first);
     editTextSecond = findViewById(R.id.edit_text_second);
     reverseFab = findViewById(R.id.fab_reverse);
-    animationDrawable = reverseFab.getDrawable();
+    animationDrawable = reverseFab.getIcon();
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
       animatedVectorDrawable = (AnimatedVectorDrawable) animationDrawable;
