@@ -27,7 +27,7 @@ android {
     flavorDimensions "default"
     defaultConfig {
         applicationId "com.shalchian.sarrafi"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 12
         versionName "1.1.2"
