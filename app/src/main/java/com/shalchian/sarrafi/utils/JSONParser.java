@@ -54,6 +54,7 @@ public class JSONParser {
       JSONObject price_gbp              = jsonData.getJSONObject("price_gbp");
       JSONObject price_aed              = jsonData.getJSONObject("price_aed");
       JSONObject price_try              = jsonData.getJSONObject("price_try");
+      JSONObject price_chf              = jsonData.getJSONObject("price_chf");
       JSONObject price_cny              = jsonData.getJSONObject("price_cny");
       JSONObject price_jpy              = jsonData.getJSONObject("price_jpy");
       JSONObject price_afn              = jsonData.getJSONObject("price_afn");
@@ -95,6 +96,7 @@ public class JSONParser {
         list.add(addObject("price_gbp",context.getResources().getString(R.string.pound), price_gbp, iran_currency, tomanConvert ));
         list.add(addObject("price_aed",context.getResources().getString(R.string.dirham), price_aed, iran_currency, tomanConvert ));
         list.add(addObject("price_try",context.getResources().getString(R.string.lira), price_try, iran_currency, tomanConvert ));
+        list.add(addObject("price_try",context.getResources().getString(R.string.frank), price_chf, iran_currency, tomanConvert ));
         list.add(addObject("price_cny",context.getResources().getString(R.string.yuan), price_cny, iran_currency, tomanConvert ));
         list.add(addObject("price_jpy",context.getResources().getString(R.string.yen), price_jpy, iran_currency, tomanConvert ));
         list.add(addObject("price_afn",context.getResources().getString(R.string.afghani), price_afn, iran_currency, tomanConvert ));
@@ -104,35 +106,35 @@ public class JSONParser {
       }
 
       if (checkedFilter.equals("gold") || checkedFilter.equals("")) {
-        list.add(addObject("sekee","سکه امامی", sekee, iran_currency, tomanConvert ));
-        list.add(addObject("sekeb","سکه بهار آزادی", sekeb, iran_currency, tomanConvert ));
-        list.add(addObject("nim","نیم سکه", nim, iran_currency, tomanConvert ));
-        list.add(addObject("rob","ربع سکه", rob, iran_currency, tomanConvert ));
-        list.add(addObject("geram24","طلای ۲۴ عیار", geram24, iran_currency, tomanConvert ));
-        list.add(addObject("geram18","طلای ۱۸ عیار", geram18, iran_currency, tomanConvert ));
-        list.add(addObject("mesghal","مثقال طلا", mesghal, iran_currency, tomanConvert ));
-        list.add(addObject("gerami","سکه گرمی", gerami, iran_currency, tomanConvert ));
-        list.add(addObject("ons","انس طلا", ons, "دلار", false ));
-        list.add(addObject("silver","انس نقره", silver, "دلار", false ));
-        list.add(addObject("gold_mini_size","طلای دست دوم", gold_mini_size, iran_currency, tomanConvert ));
+        list.add(addObject("sekee",context.getResources().getString(R.string.sekee), sekee, iran_currency, tomanConvert ));
+        list.add(addObject("sekeb",context.getResources().getString(R.string.sekeb), sekeb, iran_currency, tomanConvert ));
+        list.add(addObject("nim",context.getResources().getString(R.string.nim_seke), nim, iran_currency, tomanConvert ));
+        list.add(addObject("rob",context.getResources().getString(R.string.rob_seke), rob, iran_currency, tomanConvert ));
+        list.add(addObject("geram24",context.getResources().getString(R.string.gold_24), geram24, iran_currency, tomanConvert ));
+        list.add(addObject("geram18",context.getResources().getString(R.string.gold_18), geram18, iran_currency, tomanConvert ));
+        list.add(addObject("mesghal",context.getResources().getString(R.string.mesghal), mesghal, iran_currency, tomanConvert ));
+        list.add(addObject("gerami",context.getResources().getString(R.string.seke_gram), gerami, iran_currency, tomanConvert ));
+        list.add(addObject("ons",context.getResources().getString(R.string.gold_ons), ons, "دلار", false ));
+        list.add(addObject("silver",context.getResources().getString(R.string.silver_ons), silver, "دلار", false ));
+        list.add(addObject("gold_mini_size",context.getResources().getString(R.string.gold_mini_size), gold_mini_size, iran_currency, tomanConvert ));
       }
 
       if (checkedFilter.equals("oil") || checkedFilter.equals("")) {
-        list.add(addObject("oil","نفت سبک (امریکا)", oil, "دلار", false ));
-        list.add(addObject("oil_brent","نفت برنت", oil_brent, "دلار", false ));
-        list.add(addObject("oil_opec","نفت اوپک", oil_opec, "دلار", false ));
-        list.add(addObject("general_9","بنزین (گالن) (امریکا)", general_9, "دلار", false ));
-        list.add(addObject("general_10","گاز طبیعی (امریکا)", general_10, "دلار", false ));
-        list.add(addObject("general_11","گازوئیل (انگلیس)", general_11, "دلار", false ));
+        list.add(addObject("oil",context.getResources().getString(R.string.oil_usa), oil, "دلار", false ));
+        list.add(addObject("oil_brent",context.getResources().getString(R.string.oil_brent), oil_brent, "دلار", false ));
+        list.add(addObject("oil_opec",context.getResources().getString(R.string.oil_opec), oil_opec, "دلار", false ));
+        list.add(addObject("general_9",context.getResources().getString(R.string.gas_usa), general_9, "دلار", false ));
+        list.add(addObject("general_10",context.getResources().getString(R.string.gas_natural_usa), general_10, "دلار", false ));
+        list.add(addObject("general_11",context.getResources().getString(R.string.gasoline_uk), general_11, "دلار", false ));
       }
 
       if (checkedFilter.equals("digital_currency") || checkedFilter.equals("")) {
-        list.add(addObject("crypto-bitcoin","بیت کوین / Bitcoin", crypto_bitcoin, "دلار", false ));
-        list.add(addObject("crypto-ethereum","اتریوم / Ethereum", crypto_ethereum, "دلار", false ));
-        list.add(addObject("crypto-ripple","ریپل / Ripple", crypto_ripple,  "دلار", false ));
-        list.add(addObject("crypto-dash","دش / Dash", crypto_dash,  "دلار", false ));
-        list.add(addObject("crypto-litecoin","لایت کوین / Litecoin", crypto_litecoin,  "دلار", false ));
-        list.add(addObject("crypto-stellar","استلار / Stellar", crypto_stellar,  "دلار", false ));
+        list.add(addObject("crypto-bitcoin",context.getResources().getString(R.string.bitcoin), crypto_bitcoin, "دلار", false ));
+        list.add(addObject("crypto-ethereum",context.getResources().getString(R.string.ethereum), crypto_ethereum, "دلار", false ));
+        list.add(addObject("crypto-ripple",context.getResources().getString(R.string.ripple), crypto_ripple,  "دلار", false ));
+        list.add(addObject("crypto-dash",context.getResources().getString(R.string.dash), crypto_dash,  "دلار", false ));
+        list.add(addObject("crypto-litecoin",context.getResources().getString(R.string.litecoin), crypto_litecoin,  "دلار", false ));
+        list.add(addObject("crypto-stellar",context.getResources().getString(R.string.stellar), crypto_stellar,  "دلار", false ));
       }
     }
 
@@ -313,6 +315,7 @@ public class JSONParser {
       double pound = Double.parseDouble(jsonData.getJSONObject("price_gbp").getString("p").replace(",", ""));
       double dirham = Double.parseDouble(jsonData.getJSONObject("price_aed").getString("p").replace(",", ""));
       double lira = Double.parseDouble(jsonData.getJSONObject("price_try").getString("p").replace(",", ""));
+      double frank = Double.parseDouble(jsonData.getJSONObject("price_chf").getString("p").replace(",", ""));
       double yuan = Double.parseDouble(jsonData.getJSONObject("price_cny").getString("p").replace(",", ""));
       double yen = Double.parseDouble(jsonData.getJSONObject("price_jpy").getString("p").replace(",", ""));
       double afghani = Double.parseDouble(jsonData.getJSONObject("price_afn").getString("p").replace(",", ""));
@@ -328,6 +331,7 @@ public class JSONParser {
       unitItems.add(new UnitItem(context.getResources().getString(R.string.pound), R.drawable.flag_uk, pound));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.dirham), R.drawable.flag_ae, dirham));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.lira), R.drawable.flag_tr, lira));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.frank), R.drawable.flag_ch, frank));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.yuan), R.drawable.flag_cn, yuan));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.yen), R.drawable.flag_jp, yen));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.afghani), R.drawable.flag_af, afghani));
