@@ -105,7 +105,7 @@ public class AboutActivity extends MaterialAboutActivity {
                       Intent intent = new Intent(Intent.ACTION_SEND);
                       intent.setType("plain/text");
                       intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"armin536@gmail.com"});
-                      intent.putExtra(Intent.EXTRA_SUBJECT, "نظراات و پیشنهادات");
+                      intent.putExtra(Intent.EXTRA_SUBJECT, "نظرات و پیشنهادات (اپ صرافی)");
                       intent.putExtra(Intent.EXTRA_TEXT, "mail body");
                       startActivity(Intent.createChooser(intent, ""));
                     })

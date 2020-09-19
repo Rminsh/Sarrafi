@@ -51,6 +51,9 @@ public class JSONParser {
       JSONObject price_eur              = jsonData.getJSONObject("price_eur");
       JSONObject price_dollar_soleymani = jsonData.getJSONObject("price_dollar_soleymani");
       JSONObject price_cad              = jsonData.getJSONObject("price_cad");
+      JSONObject price_aud              = jsonData.getJSONObject("price_aud");
+      JSONObject price_nzd              = jsonData.getJSONObject("price_nzd");
+      JSONObject price_sgd              = jsonData.getJSONObject("price_sgd");
       JSONObject price_gbp              = jsonData.getJSONObject("price_gbp");
       JSONObject price_aed              = jsonData.getJSONObject("price_aed");
       JSONObject price_try              = jsonData.getJSONObject("price_try");
@@ -58,7 +61,9 @@ public class JSONParser {
       JSONObject price_cny              = jsonData.getJSONObject("price_cny");
       JSONObject price_jpy              = jsonData.getJSONObject("price_jpy");
       JSONObject price_afn              = jsonData.getJSONObject("price_afn");
+      JSONObject price_inr              = jsonData.getJSONObject("price_inr");
       JSONObject price_iqd              = jsonData.getJSONObject("price_iqd");
+      JSONObject price_sek              = jsonData.getJSONObject("price_sek");
       JSONObject price_myr              = jsonData.getJSONObject("price_myr");
       JSONObject price_rub              = jsonData.getJSONObject("price_rub");
 
@@ -93,6 +98,9 @@ public class JSONParser {
         list.add(addObject("price_dollar_soleymani",context.getResources().getString(R.string.dollar_soleymani), price_dollar_soleymani, iran_currency, tomanConvert ));
         list.add(addObject("price_eur",context.getResources().getString(R.string.euro), price_eur, iran_currency, tomanConvert ));
         list.add(addObject("price_cad",context.getResources().getString(R.string.dollar_canada), price_cad, iran_currency, tomanConvert ));
+        list.add(addObject("price_aud",context.getResources().getString(R.string.dollar_australia), price_aud, iran_currency, tomanConvert ));
+        list.add(addObject("price_nzd",context.getResources().getString(R.string.dollar_new_zealand), price_nzd, iran_currency, tomanConvert ));
+        list.add(addObject("price_sgd",context.getResources().getString(R.string.dollar_singapore), price_sgd, iran_currency, tomanConvert ));
         list.add(addObject("price_gbp",context.getResources().getString(R.string.pound), price_gbp, iran_currency, tomanConvert ));
         list.add(addObject("price_aed",context.getResources().getString(R.string.dirham), price_aed, iran_currency, tomanConvert ));
         list.add(addObject("price_try",context.getResources().getString(R.string.lira), price_try, iran_currency, tomanConvert ));
@@ -100,7 +108,9 @@ public class JSONParser {
         list.add(addObject("price_cny",context.getResources().getString(R.string.yuan), price_cny, iran_currency, tomanConvert ));
         list.add(addObject("price_jpy",context.getResources().getString(R.string.yen), price_jpy, iran_currency, tomanConvert ));
         list.add(addObject("price_afn",context.getResources().getString(R.string.afghani), price_afn, iran_currency, tomanConvert ));
+        list.add(addObject("price_inr",context.getResources().getString(R.string.rupee_india), price_inr, iran_currency, tomanConvert ));
         list.add(addObject("price_iqd",context.getResources().getString(R.string.dinar_iraq), price_iqd, iran_currency, tomanConvert ));
+        list.add(addObject("price_sek",context.getResources().getString(R.string.krona_sweden), price_sek, iran_currency, tomanConvert ));
         list.add(addObject("price_myr",context.getResources().getString(R.string.ringgit_malaysian), price_myr, iran_currency, tomanConvert ));
         list.add(addObject("price_rub",context.getResources().getString(R.string.rouble), price_rub, iran_currency, tomanConvert ));
       }
@@ -312,6 +322,9 @@ public class JSONParser {
       double dollar_soleymani = Double.parseDouble(jsonData.getJSONObject("price_dollar_soleymani").getString("p").replace(",", ""));
       double euro = Double.parseDouble(jsonData.getJSONObject("price_eur").getString("p").replace(",", ""));
       double dollar_canada = Double.parseDouble(jsonData.getJSONObject("price_cad").getString("p").replace(",", ""));
+      double dollar_australia = Double.parseDouble(jsonData.getJSONObject("price_aud").getString("p").replace(",", ""));
+      double dollar_new_zealand = Double.parseDouble(jsonData.getJSONObject("price_nzd").getString("p").replace(",", ""));
+      double dollar_singapore = Double.parseDouble(jsonData.getJSONObject("price_sgd").getString("p").replace(",", ""));
       double pound = Double.parseDouble(jsonData.getJSONObject("price_gbp").getString("p").replace(",", ""));
       double dirham = Double.parseDouble(jsonData.getJSONObject("price_aed").getString("p").replace(",", ""));
       double lira = Double.parseDouble(jsonData.getJSONObject("price_try").getString("p").replace(",", ""));
@@ -319,7 +332,9 @@ public class JSONParser {
       double yuan = Double.parseDouble(jsonData.getJSONObject("price_cny").getString("p").replace(",", ""));
       double yen = Double.parseDouble(jsonData.getJSONObject("price_jpy").getString("p").replace(",", ""));
       double afghani = Double.parseDouble(jsonData.getJSONObject("price_afn").getString("p").replace(",", ""));
+      double rupee_india = Double.parseDouble(jsonData.getJSONObject("price_inr").getString("p").replace(",", ""));
       double dinar = Double.parseDouble(jsonData.getJSONObject("price_iqd").getString("p").replace(",", ""));
+      double krona_sweden = Double.parseDouble(jsonData.getJSONObject("price_sek").getString("p").replace(",", ""));
       double ringgit = Double.parseDouble(jsonData.getJSONObject("price_myr").getString("p").replace(",", ""));
       double rouble = Double.parseDouble(jsonData.getJSONObject("price_rub").getString("p").replace(",", ""));
 
@@ -328,6 +343,9 @@ public class JSONParser {
       unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar_soleymani), R.drawable.flag_us, dollar_soleymani));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.euro), R.drawable.flag_eu, euro));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar_canada), R.drawable.flag_ca, dollar_canada));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar_australia), R.drawable.flag_au, dollar_australia));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar_new_zealand), R.drawable.flag_nz, dollar_new_zealand));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar_singapore), R.drawable.flag_sg, dollar_singapore));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.pound), R.drawable.flag_uk, pound));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.dirham), R.drawable.flag_ae, dirham));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.lira), R.drawable.flag_tr, lira));
@@ -335,7 +353,9 @@ public class JSONParser {
       unitItems.add(new UnitItem(context.getResources().getString(R.string.yuan), R.drawable.flag_cn, yuan));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.yen), R.drawable.flag_jp, yen));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.afghani), R.drawable.flag_af, afghani));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.rupee_india), R.drawable.flag_in, rupee_india));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.dinar_iraq), R.drawable.flag_iq, dinar));
+      unitItems.add(new UnitItem(context.getResources().getString(R.string.krona_sweden), R.drawable.flag_se, krona_sweden));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.ringgit_malaysian), R.drawable.flag_my, ringgit));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.rouble), R.drawable.flag_ru, rouble));
     }

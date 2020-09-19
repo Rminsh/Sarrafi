@@ -96,12 +96,17 @@
     <string name="pound">پوند انگلیس</string>
     <string name="dirham">درهم امارات</string>
     <string name="dollar_canada">دلار کانادا</string>
+    <string name="dollar_australia">دلار استرالیا</string>
+    <string name="dollar_new_zealand">دلار نیوزلند</string>
+    <string name="dollar_singapore">دلار سنگاپور</string>
     <string name="lira">لیر ترکیه</string>
     <string name="frank">فرانک سوئیس</string>
     <string name="yuan">یوان چین</string>
     <string name="yen">ین ژاپن</string>
     <string name="afghani">افغانی</string>
+    <string name="rupee_india">روپیه هند</string>
     <string name="dinar_iraq">دینار عراق</string>
+    <string name="krona_sweden">کرون سوئد</string>
     <string name="ringgit_malaysian">رینگت مالزی</string>
     <string name="rouble">روبل روسیه</string>
 
@@ -123,7 +128,7 @@
     <string name="gas_usa">بنزین (گالن) (امریکا)</string>
     <string name="gas_natural_usa">گاز طبیعی (امریکا)</string>
     <string name="gasoline_uk">گازوئیل (انگلیس)</string>
-    
+
     <string name="bitcoin">بیت کوین / Bitcoin</string>
     <string name="ethereum">اتریوم / Ethereum</string>
     <string name="ripple">ریپل / Ripple</string>
