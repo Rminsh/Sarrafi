@@ -183,6 +183,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     });
 
     ActivityHelper.checkUpdate(this, getBaseContext());
+    checkConnection();
   }
 
   public void checkConnection() {
@@ -241,12 +242,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     status_animation.playAnimation();
     status_text.setText(error);
     status_button.setVisibility(View.VISIBLE);
-  }
-
-  @Override
-  protected void onResume() {
-    super.onResume();
-    checkConnection();
   }
 
   @Override
