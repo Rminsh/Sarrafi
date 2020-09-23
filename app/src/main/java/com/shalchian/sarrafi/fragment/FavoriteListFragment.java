@@ -113,9 +113,12 @@ public class FavoriteListFragment extends Fragment implements SwipeRefreshLayout
       JSONObject response = new JSONObject(Objects.requireNonNull(data));
       ArrayList<PriceModel> allItems = JSONParser.priceList(response, "", getContext());
       ArrayList<String> favoriteItems = DatabaseManager.getInstance().getFavoriteList();
-      for (PriceModel item: allItems) {
-        if(favoriteItems.contains(item.getObjName())) {
-          list.add(item);
+      for (String fItems: favoriteItems) {
+        for (PriceModel item: allItems) {
+          if (item.getObjName().equals(fItems)) {
+            list.add(item);
+            break;
+          }
         }
       }
 
