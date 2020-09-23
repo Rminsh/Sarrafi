@@ -20,14 +20,18 @@ package com.shalchian.sarrafi.dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
+import com.google.android.material.button.MaterialButton;
 import com.shalchian.sarrafi.R;
+import com.shalchian.sarrafi.db.DatabaseManager;
+import com.shalchian.sarrafi.fragment.FavoriteListFragment;
 import com.shalchian.sarrafi.model.PriceModel;
 import com.shalchian.sarrafi.utils.ActivityHelper;
 
@@ -45,7 +49,8 @@ public class DetailsSheet {
     TextView popup_price_percent_change = bottomSheetView.findViewById(R.id.popup_price_percent_change);
     TextView popup_date = bottomSheetView.findViewById(R.id.popup_date);
 
-    Button popup_share = bottomSheetView.findViewById(R.id.popup_share_button);
+    MaterialButton popup_favorite = bottomSheetView.findViewById(R.id.popup_favorite_button);
+    MaterialButton popup_share = bottomSheetView.findViewById(R.id.popup_share_button);
 
     String price = priceModel.getPrice() +  " " + priceModel.getToCurrency();
     String priceHigh = priceModel.getPrice_high() +  " " + priceModel.getToCurrency();
@@ -53,6 +58,14 @@ public class DetailsSheet {
     String price_change = priceModel.getPrice_change() +  " " + priceModel.getToCurrency();
     String percent_change = priceModel.getPercent_change() + "٪";
     String price_date = context.getResources().getString(R.string.last_update) + priceModel.getTime();
+
+    AtomicBoolean isFavorite = new AtomicBoolean(false);
+
+    ArrayList<String> list = DatabaseManager.getInstance().getFavoriteList();
+    if (DatabaseManager.getInstance().isFavoriteListAvailable() && list.contains(priceModel.getObjName())) {
+      popup_favorite.setIcon(context.getResources().getDrawable(R.drawable.ic_star_fill));
+      isFavorite.set(true);
+    }
 
     popup_header.setText(priceModel.getType());
     popup_header_price.setText(price);
@@ -76,6 +89,19 @@ public class DetailsSheet {
       default:
         break;
     }
+
+    popup_favorite.setOnClickListener(view -> {
+      if (isFavorite.get()) {
+        isFavorite.set(false);
+        DatabaseManager.getInstance().deleteFromFavoriteList(priceModel.getObjName());
+        popup_favorite.setIcon(context.getResources().getDrawable(R.drawable.ic_star_line));
+      } else {
+        isFavorite.set(true);
+        DatabaseManager.getInstance().addToFavoriteList(priceModel.getObjName());
+        popup_favorite.setIcon(context.getResources().getDrawable(R.drawable.ic_star_fill));
+      }
+      FavoriteListFragment.getInstance().loadList();
+    });
 
     popup_share.setOnClickListener(view -> {
       String header = "🏷 " + priceModel.getType() + priceModel.getPrice() +  " " + priceModel.getToCurrency();

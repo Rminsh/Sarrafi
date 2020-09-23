@@ -18,14 +18,17 @@
 package com.shalchian.sarrafi.db;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.orhanobut.hawk.Hawk;
 import com.shalchian.sarrafi.model.PriceModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
   private static final String KEY_EXCHANGE = "exchange_list";
+  private static final String KEY_FAVORITE = "favorite_list";
   private static DatabaseManager databaseManager;
 
   public static DatabaseManager getInstance() {
@@ -54,5 +57,37 @@ public class DatabaseManager {
   public boolean isPriceListAvailable() {
     List<PriceModel> priceList = getPriceList();
     return priceList != null && !priceList.isEmpty();
+  }
+
+  public void deleteFavoriteList() {
+    Hawk.delete(KEY_FAVORITE);
+  }
+
+  public void deleteFromFavoriteList(String item) {
+    ArrayList<String> favoriteList = getFavoriteList();
+    favoriteList.remove(item);
+    setFavoriteList(favoriteList);
+  }
+
+  public void addToFavoriteList(String item) {
+    ArrayList<String> favoriteList = getFavoriteList();
+    if (favoriteList == null)
+      favoriteList = new ArrayList<>();
+    favoriteList.add(item);
+    setFavoriteList(favoriteList);
+    Log.e("⭐️ FAVORITE LIST:", String.valueOf(favoriteList));
+  }
+
+  public void setFavoriteList(ArrayList<String> favoriteList) {
+    boolean status = Hawk.put(KEY_FAVORITE, favoriteList);
+  }
+
+  public ArrayList<String> getFavoriteList() {
+    return Hawk.get(KEY_FAVORITE);
+  }
+
+  public boolean isFavoriteListAvailable() {
+    ArrayList<String> favoriteList = getFavoriteList();
+    return favoriteList != null && !favoriteList.isEmpty();
   }
 }

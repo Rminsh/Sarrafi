@@ -29,6 +29,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -55,6 +56,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator;
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
@@ -62,6 +64,8 @@ import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import com.shalchian.sarrafi.R;
+import com.shalchian.sarrafi.db.DatabaseManager;
+import com.shalchian.sarrafi.fragment.FavoriteListFragment;
 import com.shalchian.sarrafi.model.PriceTableModel;
 import com.shalchian.sarrafi.utils.ActivityHelper;
 import com.shalchian.sarrafi.utils.JSONParser;
@@ -74,6 +78,7 @@ public class DetailActivity extends AppCompatActivity {
   LineChart chart;
   ProgressBar table_progressbar;
   Toolbar toolbar;
+  MenuItem favoriteMenu;
   TextView detail_price;
   TextView detail_price_change;
   CircularProgressIndicator detail_percent_change_circular;
@@ -93,6 +98,8 @@ public class DetailActivity extends AppCompatActivity {
   String PERCENT_CHANGE_RAW;
 
   PriceTableModel priceTableModel;
+
+  AtomicBoolean isFavorite;
 
   @Override
   protected void attachBaseContext(Context newBase) {
@@ -129,6 +136,8 @@ public class DetailActivity extends AppCompatActivity {
     toolbar.inflateMenu(R.menu.detail_menu);
     toolbar.setNavigationIcon(R.drawable.ic_back);
     toolbar.setNavigationOnClickListener(view -> this.finish());
+
+    isFavorite = new AtomicBoolean(false);
 
     scrollView = findViewById(R.id.detail_scrollview);
     parent_chart_frame = findViewById(R.id.parent_chart_frame);
@@ -178,6 +187,20 @@ public class DetailActivity extends AppCompatActivity {
     toolbar.setOnMenuItemClickListener(item -> {
 
       switch (item.getItemId()) {
+        case R.id.menu_favorite:
+          if (isFavorite.get()) {
+            isFavorite.set(false);
+            DatabaseManager.getInstance().deleteFromFavoriteList(OBJECT);
+            favoriteMenu.setTitle(getResources().getString(R.string.add_to_favorite));
+            favoriteMenu.setIcon(R.drawable.ic_star_line);
+          } else {
+            isFavorite.set(true);
+            DatabaseManager.getInstance().addToFavoriteList(OBJECT);
+            favoriteMenu.setTitle(getResources().getString(R.string.remove_from_favorites));
+            favoriteMenu.setIcon(R.drawable.ic_star_fill);
+          }
+          FavoriteListFragment.getInstance().loadList();
+          return true;
 
         case R.id.menu_share:
           String status = "";
@@ -225,6 +248,13 @@ public class DetailActivity extends AppCompatActivity {
   @Override
   public boolean onPrepareOptionsMenu(final Menu menu) {
     getMenuInflater().inflate(R.menu.detail_menu, menu);
+    favoriteMenu = menu.findItem(R.id.menu_favorite);
+    ArrayList<String> list = DatabaseManager.getInstance().getFavoriteList();
+    if (DatabaseManager.getInstance().isFavoriteListAvailable() && list.contains(OBJECT)) {
+      favoriteMenu.setTitle(getResources().getString(R.string.remove_from_favorites));
+      favoriteMenu.setIcon(R.drawable.ic_star_fill);
+      isFavorite.set(true);
+    }
     return super.onCreateOptionsMenu(menu);
   }
 

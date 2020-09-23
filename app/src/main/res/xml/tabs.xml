@@ -21,6 +21,11 @@
 
     <tab
         inactiveColor="@color/colorPrimaryLight"
+        activeColor="@color/favorite"
+        drawable="@drawable/ic_star_fill" />
+
+    <tab
+        inactiveColor="@color/colorPrimaryLight"
         activeColor="@color/money"
         drawable="@drawable/ic_money"/>
 

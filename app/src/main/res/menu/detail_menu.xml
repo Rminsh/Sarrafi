@@ -20,8 +20,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_favorite"
+        android:title="@string/add_to_favorite"
+        android:icon="@drawable/ic_star_line"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_share"
         android:title="@string/share"
         android:icon="@drawable/ic_share"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 </menu>

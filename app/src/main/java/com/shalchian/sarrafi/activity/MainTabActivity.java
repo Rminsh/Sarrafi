@@ -43,6 +43,7 @@ import com.shalchian.sarrafi.BuildConfig;
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.fragment.CurrencyListFragment;
 import com.shalchian.sarrafi.fragment.DigitalCurrencyListFragment;
+import com.shalchian.sarrafi.fragment.FavoriteListFragment;
 import com.shalchian.sarrafi.fragment.GoldListFragment;
 import com.shalchian.sarrafi.fragment.OilListFragment;
 import com.shalchian.sarrafi.fragment.PricePagerAdapter;
@@ -172,12 +173,14 @@ public class MainTabActivity extends AppCompatActivity {
                 bundle.putString("data_key", response.toString());
 
                 PricePagerAdapter pricePagerAdapter = new PricePagerAdapter(getBaseContext(), getSupportFragmentManager());
+                pricePagerAdapter.addFragment(FavoriteListFragment.newInstance(bundle));
                 pricePagerAdapter.addFragment(CurrencyListFragment.newInstance(bundle));
                 pricePagerAdapter.addFragment(GoldListFragment.newInstance(bundle));
                 pricePagerAdapter.addFragment(OilListFragment.newInstance(bundle));
                 pricePagerAdapter.addFragment(DigitalCurrencyListFragment.newInstance(bundle));
                 viewPager.setAdapter(pricePagerAdapter);
                 tabs.setupViewPager(viewPager);
+                viewPager.setCurrentItem(1);
                 tabs.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.VISIBLE);
 

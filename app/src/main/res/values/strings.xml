@@ -44,8 +44,11 @@
     <string name="email">ایمیل</string>
     <string name="version">ورژن</string>
 
+    <string name="favorite">علاقه‌مندی</string>
+    <string name="add_to_favorite">افزودن به لیست علاقه‌مندی‌ها</string>
+    <string name="remove_from_favorites">حذف از علاقه‌مندی‌ها</string>
     <string name="share">به اشتراک گذاری</string>
-    <string name="share_using">ارسال توسط...</string>
+    <string name="share_using">ارسال توسط …</string>
 
     <string name="price_percent_change">درصد تغییرات قیمت</string>
     <string name="price_change">تغییرات قیمت</string>

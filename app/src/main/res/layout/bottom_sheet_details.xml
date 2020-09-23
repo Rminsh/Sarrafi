@@ -154,6 +154,17 @@
         android:gravity="center"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/popup_favorite_button"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/favorite"
+        android:textColor="@color/favorite"
+        app:icon="@drawable/ic_star_line"
+        app:iconTint="@color/favorite" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/popup_share_button"
         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:layout_width="wrap_content"

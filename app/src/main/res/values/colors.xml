@@ -28,10 +28,11 @@
     <color name="price_down">#DF10A8</color>
     <color name="price_up">#0FCC90</color>
 
+    <color name="favorite">#FFC107</color>
     <color name="money">#37946D</color>
-    <color name="gold">#A8823C</color>
+    <color name="gold">#C6902D</color>
     <color name="oil">#6267C5</color>
-    <color name="digital_currency">#4493E6</color>
+    <color name="digital_currency">#03A9F4</color>
 
     <color name="atl_icon_from_color">#818181</color>
     <color name="atl_icon_to_color">#FFFFFF</color>
