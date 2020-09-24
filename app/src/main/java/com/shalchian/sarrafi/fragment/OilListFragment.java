@@ -32,6 +32,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.activity.MainTabActivity;
 import com.shalchian.sarrafi.adapter.PriceAdapter;
+import com.shalchian.sarrafi.db.DatabaseManager;
 import com.shalchian.sarrafi.model.PriceModel;
 import com.shalchian.sarrafi.utils.JSONParser;
 
@@ -39,22 +40,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class OilListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
-
-  private static final String ARG_DATA_LIST = "data_key";
 
   ArrayList<PriceModel> list;
   PriceAdapter adapter;
   RecyclerView recycler_view;
   SwipeRefreshLayout swipeRefreshLayout;
-
-  public static OilListFragment newInstance(Bundle bundle) {
-    OilListFragment fragment = new OilListFragment();
-    fragment.setArguments(bundle);
-    return fragment;
-  }
 
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,8 +72,7 @@ public class OilListFragment extends Fragment implements SwipeRefreshLayout.OnRe
     list.clear();
 
     try {
-      String data = getArguments().getString(ARG_DATA_LIST);
-      JSONObject response = new JSONObject(Objects.requireNonNull(data));
+      JSONObject response = new JSONObject(DatabaseManager.getInstance().getRawData());
       list.addAll(JSONParser.priceList(response, "oil", getContext()));
       recycler_view.setAdapter(adapter);
     } catch (JSONException e) {

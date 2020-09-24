@@ -42,12 +42,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class FavoriteListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
   private static FavoriteListFragment instance = null;
-  private static final String ARG_DATA_LIST = "data_key";
 
   ArrayList<PriceModel> list;
   PriceAdapter adapter;
@@ -57,12 +55,6 @@ public class FavoriteListFragment extends Fragment implements SwipeRefreshLayout
   View status_layout;
   LottieAnimationView status_animation;
   TextView status_text;
-
-  public static FavoriteListFragment newInstance(Bundle bundle) {
-    FavoriteListFragment fragment = new FavoriteListFragment();
-    fragment.setArguments(bundle);
-    return fragment;
-  }
 
   public static FavoriteListFragment getInstance() {
     return instance;
@@ -109,8 +101,7 @@ public class FavoriteListFragment extends Fragment implements SwipeRefreshLayout
   public void loadList() {
     try {
       list.clear();
-      String data = getArguments().getString(ARG_DATA_LIST);
-      JSONObject response = new JSONObject(Objects.requireNonNull(data));
+      JSONObject response = new JSONObject(DatabaseManager.getInstance().getRawData());
       ArrayList<PriceModel> allItems = JSONParser.priceList(response, "", getContext());
       ArrayList<String> favoriteItems = DatabaseManager.getInstance().getFavoriteList();
       for (String fItems: favoriteItems) {

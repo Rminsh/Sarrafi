@@ -41,6 +41,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.shalchian.sarrafi.BuildConfig;
 import com.shalchian.sarrafi.R;
+import com.shalchian.sarrafi.db.DatabaseManager;
 import com.shalchian.sarrafi.fragment.CurrencyListFragment;
 import com.shalchian.sarrafi.fragment.DigitalCurrencyListFragment;
 import com.shalchian.sarrafi.fragment.FavoriteListFragment;
@@ -169,15 +170,14 @@ public class MainTabActivity extends AppCompatActivity {
               public void onResponse(JSONObject response) {
                 status_layout.setVisibility(View.GONE);
 
-                Bundle bundle = new Bundle();
-                bundle.putString("data_key", response.toString());
+                DatabaseManager.getInstance().setRawData(response.toString());
 
                 PricePagerAdapter pricePagerAdapter = new PricePagerAdapter(getBaseContext(), getSupportFragmentManager());
-                pricePagerAdapter.addFragment(FavoriteListFragment.newInstance(bundle));
-                pricePagerAdapter.addFragment(CurrencyListFragment.newInstance(bundle));
-                pricePagerAdapter.addFragment(GoldListFragment.newInstance(bundle));
-                pricePagerAdapter.addFragment(OilListFragment.newInstance(bundle));
-                pricePagerAdapter.addFragment(DigitalCurrencyListFragment.newInstance(bundle));
+                pricePagerAdapter.addFragment(new FavoriteListFragment());
+                pricePagerAdapter.addFragment(new CurrencyListFragment());
+                pricePagerAdapter.addFragment(new GoldListFragment());
+                pricePagerAdapter.addFragment(new OilListFragment());
+                pricePagerAdapter.addFragment(new DigitalCurrencyListFragment());
                 viewPager.setAdapter(pricePagerAdapter);
                 tabs.setupViewPager(viewPager);
                 viewPager.setCurrentItem(1);

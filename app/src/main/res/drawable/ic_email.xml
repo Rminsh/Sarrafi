@@ -16,10 +16,12 @@
   -->
 
 <!-- drawable/email.xml -->
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:height="24dp"
-    android:width="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
-    <path android:fillColor="#FFFFFF" android:pathData="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" />
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="25"
+    android:viewportHeight="25"
+    android:width="25dp"
+    android:height="25dp">
+    <path
+        android:pathData="M17.4394 3.5C18.7804 3.5 20.0704 4.03 21.0194 4.981C21.9694 5.93 22.5004 7.21 22.5004 8.55L22.5004 16.45C22.5004 19.24 20.2304 21.5 17.4394 21.5L7.5604 21.5C4.7694 21.5 2.5004 19.24 2.5004 16.45L2.5004 8.55C2.5004 5.76 4.7594 3.5 7.5604 3.5L17.4394 3.5ZM19.0304 10.04L19.1104 9.96C19.3494 9.67 19.3494 9.25 19.0994 8.96C18.9604 8.811 18.7694 8.72 18.5704 8.7C18.3604 8.689 18.1604 8.76 18.0094 8.9L13.5004 12.5C12.9204 12.981 12.0894 12.981 11.5004 12.5L7.0004 8.9C6.6894 8.67 6.2594 8.7 6.0004 8.97C5.7304 9.24 5.7004 9.67 5.9294 9.97L6.0604 10.1L10.6104 13.65C11.1704 14.09 11.8494 14.33 12.5604 14.33C13.2694 14.33 13.9604 14.09 14.5194 13.65L19.0304 10.04Z"
+        android:fillColor="#FFFFFF" />
 </vector>

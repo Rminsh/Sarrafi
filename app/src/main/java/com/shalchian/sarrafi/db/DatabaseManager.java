@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
+  private static final String KEY_RAW_DATA = "raw_data_list";
   private static final String KEY_EXCHANGE = "exchange_list";
   private static final String KEY_FAVORITE = "favorite_list";
   private static DatabaseManager databaseManager;
@@ -40,6 +41,23 @@ public class DatabaseManager {
 
   public void init(Context context) {
     Hawk.init(context.getApplicationContext()).build();
+  }
+
+  public void deleteRawData() {
+    Hawk.delete(KEY_RAW_DATA);
+  }
+
+  public void setRawData(String rawData) {
+    boolean status = Hawk.put(KEY_RAW_DATA, rawData);
+  }
+
+  public String getRawData() {
+    return Hawk.get(KEY_RAW_DATA);
+  }
+
+  public boolean isRawDataAvailable() {
+    String rawData = getRawData();
+    return rawData != null && !rawData.isEmpty();
   }
 
   public void deletePriceList() {

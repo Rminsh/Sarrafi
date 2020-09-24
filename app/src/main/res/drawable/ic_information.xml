@@ -16,10 +16,12 @@
   -->
 
 <!-- drawable/information.xml -->
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:height="24dp"
-    android:width="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
-    <path android:fillColor="#FFFFFF" android:pathData="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="25"
+    android:viewportHeight="25"
+    android:width="25dp"
+    android:height="25dp">
+    <path
+        android:pathData="M2.5 12.5C2.5 6.981 6.98 2.5 12.49998 2.5C18.02998 2.5 22.49998 6.981 22.49998 12.5C22.49998 18.021 18.02998 22.5 12.49998 22.5C6.98 22.5 2.5 18.021 2.5 12.5ZM11.61998 8.71L11.61998 13.13C11.61998 13.611 12.01998 14 12.49998 14C12.97998 14 13.36998 13.611 13.36998 13.13L13.36998 8.71C13.36998 8.231 12.97998 7.83 12.49998 7.83C12.01998 7.83 11.61998 8.231 11.61998 8.71ZM12.50998 17.181C12.98998 17.181 13.37998 16.781 13.37998 16.301C13.37998 15.821 12.98998 15.431 12.49998 15.431C12.01998 15.431 11.62998 15.821 11.62998 16.301C11.62998 16.781 12.01998 17.181 12.50998 17.181Z"
+        android:fillColor="#FFFFFF" />
 </vector>

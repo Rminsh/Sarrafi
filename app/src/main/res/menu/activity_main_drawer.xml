@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_calculator"
-            android:icon="@drawable/ic_calculator"
+            android:icon="@drawable/ic_unit_swap"
             android:title="@string/calculator" />
         <item
             android:id="@+id/nav_settings"
@@ -18,7 +18,7 @@
             android:title="@string/about" />
         <item
             android:id="@+id/nav_rate"
-            android:icon="@drawable/ic_star"
+            android:icon="@drawable/ic_star_fill"
             android:title="@string/rate_us" />
     </group>
 </menu>
