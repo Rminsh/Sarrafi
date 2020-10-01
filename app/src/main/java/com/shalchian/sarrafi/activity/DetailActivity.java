@@ -66,6 +66,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.db.DatabaseManager;
 import com.shalchian.sarrafi.fragment.FavoriteListFragment;
+import com.shalchian.sarrafi.model.FavoriteModel;
 import com.shalchian.sarrafi.model.PriceTableModel;
 import com.shalchian.sarrafi.utils.ActivityHelper;
 import com.shalchian.sarrafi.utils.JSONParser;
@@ -92,6 +93,7 @@ public class DetailActivity extends AppCompatActivity {
 
   String checkedFilter = "MONTHLY";
 
+  String TYPE;
   String OBJECT;
   String CURRENCY_TYPE;
   String PERCENT_CHANGE;
@@ -117,7 +119,7 @@ public class DetailActivity extends AppCompatActivity {
     getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
     setContentView(R.layout.activity_detail);
 
-    String TYPE = Objects.requireNonNull(getIntent().getExtras()).getString("TYPE");
+    TYPE = Objects.requireNonNull(getIntent().getExtras()).getString("TYPE");
     CURRENCY_TYPE = getIntent().getExtras().getString("TOCURRENCY");
     String PRICE = getIntent().getExtras().getString("PRICE") + " " + CURRENCY_TYPE;
     String PRICE_UP = getIntent().getExtras().getString("PRICE_UP") + " " + CURRENCY_TYPE;
@@ -190,12 +192,12 @@ public class DetailActivity extends AppCompatActivity {
         case R.id.menu_favorite:
           if (isFavorite.get()) {
             isFavorite.set(false);
-            DatabaseManager.getInstance().deleteFromFavoriteList(OBJECT);
+            DatabaseManager.getInstance().deleteFromFavoriteList(new FavoriteModel(OBJECT, TYPE));
             favoriteMenu.setTitle(getResources().getString(R.string.add_to_favorite));
             favoriteMenu.setIcon(R.drawable.ic_star_line);
           } else {
             isFavorite.set(true);
-            DatabaseManager.getInstance().addToFavoriteList(OBJECT);
+            DatabaseManager.getInstance().addToFavoriteList(new FavoriteModel(OBJECT, TYPE));
             favoriteMenu.setTitle(getResources().getString(R.string.remove_from_favorites));
             favoriteMenu.setIcon(R.drawable.ic_star_fill);
           }
@@ -249,8 +251,8 @@ public class DetailActivity extends AppCompatActivity {
   public boolean onPrepareOptionsMenu(final Menu menu) {
     getMenuInflater().inflate(R.menu.detail_menu, menu);
     favoriteMenu = menu.findItem(R.id.menu_favorite);
-    ArrayList<String> list = DatabaseManager.getInstance().getFavoriteList();
-    if (DatabaseManager.getInstance().isFavoriteListAvailable() && list.contains(OBJECT)) {
+    ArrayList<FavoriteModel> list = DatabaseManager.getInstance().getFavoriteList();
+    if (DatabaseManager.getInstance().isFavoriteListAvailable() && list.contains(new FavoriteModel(OBJECT, TYPE))) {
       favoriteMenu.setTitle(getResources().getString(R.string.remove_from_favorites));
       favoriteMenu.setIcon(R.drawable.ic_star_fill);
       isFavorite.set(true);

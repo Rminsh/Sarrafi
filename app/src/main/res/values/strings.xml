@@ -87,6 +87,7 @@
     <string name="refresh_list">برای ذخیره کردن تغییرات، برنامه را دوباره اجرا کنید یا لیست را ریفرش کنید</string>
     <string name="open">باز کردن</string>
     <string name="close">بستن</string>
+    <string name="edit_list">ویرایش لیست</string>
 
     <string name="calculator">تبدیل مقیاس</string>
     <string name="amount">مقدار</string>

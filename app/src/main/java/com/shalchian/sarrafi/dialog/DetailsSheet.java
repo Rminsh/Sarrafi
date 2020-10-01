@@ -32,6 +32,7 @@ import com.google.android.material.button.MaterialButton;
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.db.DatabaseManager;
 import com.shalchian.sarrafi.fragment.FavoriteListFragment;
+import com.shalchian.sarrafi.model.FavoriteModel;
 import com.shalchian.sarrafi.model.PriceModel;
 import com.shalchian.sarrafi.utils.ActivityHelper;
 
@@ -61,8 +62,8 @@ public class DetailsSheet {
 
     AtomicBoolean isFavorite = new AtomicBoolean(false);
 
-    ArrayList<String> list = DatabaseManager.getInstance().getFavoriteList();
-    if (DatabaseManager.getInstance().isFavoriteListAvailable() && list.contains(priceModel.getObjName())) {
+    ArrayList<FavoriteModel> list = DatabaseManager.getInstance().getFavoriteList();
+    if (DatabaseManager.getInstance().isFavoriteListAvailable() && list.contains(new FavoriteModel(priceModel.getObjName(), priceModel.getType()))) {
       popup_favorite.setIcon(context.getResources().getDrawable(R.drawable.ic_star_fill));
       isFavorite.set(true);
     }
@@ -93,11 +94,11 @@ public class DetailsSheet {
     popup_favorite.setOnClickListener(view -> {
       if (isFavorite.get()) {
         isFavorite.set(false);
-        DatabaseManager.getInstance().deleteFromFavoriteList(priceModel.getObjName());
+        DatabaseManager.getInstance().deleteFromFavoriteList(new FavoriteModel(priceModel.getObjName(), priceModel.getType()));
         popup_favorite.setIcon(context.getResources().getDrawable(R.drawable.ic_star_line));
       } else {
         isFavorite.set(true);
-        DatabaseManager.getInstance().addToFavoriteList(priceModel.getObjName());
+        DatabaseManager.getInstance().addToFavoriteList(new FavoriteModel(priceModel.getObjName(), priceModel.getType()));
         popup_favorite.setIcon(context.getResources().getDrawable(R.drawable.ic_star_fill));
       }
       FavoriteListFragment.getInstance().loadList();

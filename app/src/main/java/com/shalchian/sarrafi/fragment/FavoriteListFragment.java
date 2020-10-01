@@ -18,8 +18,12 @@
 
 package com.shalchian.sarrafi.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,9 +36,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.shalchian.sarrafi.R;
+import com.shalchian.sarrafi.activity.EditFavoriteListActivity;
 import com.shalchian.sarrafi.activity.MainTabActivity;
 import com.shalchian.sarrafi.adapter.PriceAdapter;
 import com.shalchian.sarrafi.db.DatabaseManager;
+import com.shalchian.sarrafi.model.FavoriteModel;
 import com.shalchian.sarrafi.model.PriceModel;
 import com.shalchian.sarrafi.utils.JSONParser;
 
@@ -63,6 +69,7 @@ public class FavoriteListFragment extends Fragment implements SwipeRefreshLayout
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setHasOptionsMenu(true);
     instance = this;
     list = new ArrayList<>();
     list.clear();
@@ -98,20 +105,36 @@ public class FavoriteListFragment extends Fragment implements SwipeRefreshLayout
     swipeRefreshLayout.setRefreshing(false);
   }
 
+  @Override
+  public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    inflater.inflate(R.menu.favorite_menu, menu);
+    super.onCreateOptionsMenu(menu, inflater);
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    if (item.getItemId() == R.id.menu_edit_favorite) {
+      Intent i = new Intent(getContext(), EditFavoriteListActivity.class);
+      startActivity(i);
+    }
+    return false;
+  }
+
   public void loadList() {
     try {
       list.clear();
       JSONObject response = new JSONObject(DatabaseManager.getInstance().getRawData());
       ArrayList<PriceModel> allItems = JSONParser.priceList(response, "", getContext());
-      ArrayList<String> favoriteItems = DatabaseManager.getInstance().getFavoriteList();
-      for (String fItems: favoriteItems) {
-        for (PriceModel item: allItems) {
-          if (item.getObjName().equals(fItems)) {
-            list.add(item);
-            break;
+      ArrayList<FavoriteModel> favoriteItems = DatabaseManager.getInstance().getFavoriteList();
+      if (favoriteItems != null)
+        for (FavoriteModel fItems: favoriteItems) {
+          for (PriceModel item: allItems) {
+            if (item.getObjName().equals(fItems.getObjName())) {
+              list.add(item);
+              break;
+            }
           }
         }
-      }
 
       recycler_view.setAdapter(adapter);
 

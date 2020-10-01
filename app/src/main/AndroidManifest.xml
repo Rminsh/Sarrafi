@@ -46,6 +46,7 @@
         <activity android:name=".activity.MainTabActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.DetailActivity" />
+        <activity android:name=".activity.EditFavoriteListActivity"/>
         <activity
             android:name=".activity.CalculatorActivity"
             android:configChanges="screenLayout|orientation|screenSize" />
