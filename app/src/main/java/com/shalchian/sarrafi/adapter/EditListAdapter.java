@@ -78,8 +78,9 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.ItemVi
     });
 
     holder.removeView.setOnClickListener(view -> {
-      data.remove(position);
-      notifyItemRemoved(position);
+      data.remove(holder.getAdapterPosition());
+      notifyItemRemoved(holder.getAdapterPosition());
+      notifyItemRangeChanged(holder.getAdapterPosition(), data.size());
     });
   }
 
@@ -87,6 +88,7 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.ItemVi
   public void onItemDismiss(int position) {
     data.remove(position);
     notifyItemRemoved(position);
+    notifyItemRangeChanged(position, data.size());
   }
 
   @Override
