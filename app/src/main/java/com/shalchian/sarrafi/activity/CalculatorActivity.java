@@ -54,6 +54,7 @@ import org.json.JSONObject;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
@@ -231,10 +232,10 @@ public class CalculatorActivity extends AppCompatActivity {
   }
 
   private void calculate() {
-    if (editTextFirst.length() !=0 ) {
+    if (editTextFirst.length() !=0 && editTextFirst.getText() != null) {
       Double value = (Double.parseDouble(editTextFirst.getText().toString()) * firstValue) / secondValue;
 
-      NumberFormat numberFormat = NumberFormat.getInstance();
+      NumberFormat numberFormat = NumberFormat.getInstance(new Locale("en","US"));
       numberFormat.setGroupingUsed(false);
       editTextSecond.setText(JSONParser.addComma(numberFormat.format(value)));
     }

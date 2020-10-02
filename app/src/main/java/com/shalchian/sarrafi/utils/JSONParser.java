@@ -36,6 +36,7 @@ import org.json.JSONObject;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class JSONParser {
   public static ArrayList<PriceModel> priceList(JSONObject response, String checkedFilter, Context context) throws JSONException {
@@ -366,7 +367,7 @@ public class JSONParser {
     price = price.replace(",", "");
     double priceValue = Double.parseDouble(price) / 10;
 
-    NumberFormat numberFormat = NumberFormat.getInstance();
+    NumberFormat numberFormat = NumberFormat.getInstance(new Locale("en","US"));
     numberFormat.setGroupingUsed(false);
     price = numberFormat.format(priceValue);
 
