@@ -180,7 +180,8 @@ public class MainTabActivity extends AppCompatActivity {
                 pricePagerAdapter.addFragment(new DigitalCurrencyListFragment());
                 viewPager.setAdapter(pricePagerAdapter);
                 tabs.setupViewPager(viewPager);
-                viewPager.setCurrentItem(1);
+                if (!DatabaseManager.getInstance().isFavoriteListAvailable())
+                  viewPager.setCurrentItem(1);
                 tabs.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.VISIBLE);
 
