@@ -84,6 +84,9 @@ public class EditFavoriteListActivity extends AppCompatActivity implements OnSta
     status_text = findViewById(R.id.status_text);
 
     ArrayList<FavoriteModel> list = DatabaseManager.getInstance().getFavoriteList();
+    if (list == null)
+      list = new ArrayList<>();
+
     adapter = new EditListAdapter(list, this);
 
     RecyclerView recyclerView = findViewById(R.id.fav_list_rcv);

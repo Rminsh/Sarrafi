@@ -29,8 +29,8 @@ android {
         applicationId "com.shalchian.sarrafi"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 14
-        versionName "1.1.4"
+        versionCode 15
+        versionName "1.1.5"
         multiDexEnabled true
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
@@ -119,7 +119,7 @@ dependencies {
     implementation 'com.shreyaspatil:MaterialDialog:2.1'
 
     //Google Play Core
-    implementation 'com.google.android.play:core:1.8.0'
+    implementation 'com.google.android.play:core:1.8.2'
 
     // Material Navigation View Library
     implementation 'com.shreyaspatil:MaterialNavigationView:1.2'
