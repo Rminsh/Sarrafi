@@ -152,7 +152,7 @@ public class JSONParser {
     return list;
   }
 
-  private static PriceModel addObject(String objectName, String name, JSONObject object, String toCurrency, boolean tomanConvert) {
+  public static PriceModel addObject(String objectName, String name, JSONObject object, String toCurrency, boolean tomanConvert) {
     PriceModel priceModel = null;
     try {
       String price = object.getString("p");

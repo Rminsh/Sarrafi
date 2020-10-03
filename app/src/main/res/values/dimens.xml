@@ -32,4 +32,9 @@
     <dimen name="space">6dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
+
+    <dimen name="widget_margin">23dp</dimen>
+    <dimen name="symbol_title">18sp</dimen>
+    <dimen name="symbol_price">28sp</dimen>
+    <dimen name="symbol_details">14sp</dimen>
 </resources>

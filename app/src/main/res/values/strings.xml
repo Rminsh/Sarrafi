@@ -139,4 +139,6 @@
     <string name="dash">دش / Dash</string>
     <string name="litecoin">لایت کوین / Litecoin</string>
     <string name="stellar">استلار / Stellar</string>
+
+    <string name="symbol">نماد</string>
 </resources>
