@@ -29,7 +29,6 @@
     <string name="empty_list">لیست خالی میباشد</string>
     <string name="error_parsing">خطا در بارگزاری اطلاعات</string>
     <string name="error_loading">خطا در دریافت اطلاعات</string>
-    <string name="error_deleting_with_id">خطا در حذف اطلاعیه به شماره </string>
     <string name="feedback">ارسال فیدبک</string>
     <string name="about">درباره ما</string>
     <string name="your_name">نام شما</string>
@@ -141,4 +140,5 @@
     <string name="stellar">استلار / Stellar</string>
 
     <string name="symbol">نماد</string>
+    <string name="updating">در حال به‌روزرسانی</string>
 </resources>

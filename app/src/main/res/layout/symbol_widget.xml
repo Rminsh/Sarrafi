@@ -21,9 +21,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@drawable/rounded_gradient_ocean_blue"
     android:padding="@dimen/widget_margin"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
     android:id="@+id/symbol_layout">
 
     <ImageView
@@ -38,7 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_gravity="left"
+        android:layout_gravity="left|center_vertical"
+        android:scaleType="fitStart"
         android:gravity="center_vertical"
         tools:ignore="ContentDescription,RtlHardcoded" />
 
@@ -66,22 +70,25 @@
 
     </RelativeLayout>
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/symbol_date"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:gravity="end|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/refresh_symbol"
+            android:scaleType="fitStart"
             tools:ignore="ContentDescription,RtlHardcoded" />
 
         <FrameLayout
+            android:id="@+id/refresh_symbol"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_gravity="right"
+
+            android:layout_alignParentRight="true"
             tools:ignore="RtlHardcoded">
             <ProgressBar
                 android:id="@+id/symbol_progress"
@@ -98,6 +105,6 @@
                 android:src="@drawable/ic_refresh"
                 tools:ignore="ContentDescription,RtlHardcoded" />
         </FrameLayout>
-    </FrameLayout>
+    </RelativeLayout>
 
 </LinearLayout>
