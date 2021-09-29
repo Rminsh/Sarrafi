@@ -105,7 +105,7 @@ public class JSONParser {
         list.add(addObject("price_gbp",context.getResources().getString(R.string.pound), price_gbp, iran_currency, tomanConvert ));
         list.add(addObject("price_aed",context.getResources().getString(R.string.dirham), price_aed, iran_currency, tomanConvert ));
         list.add(addObject("price_try",context.getResources().getString(R.string.lira), price_try, iran_currency, tomanConvert ));
-        list.add(addObject("price_try",context.getResources().getString(R.string.frank), price_chf, iran_currency, tomanConvert ));
+        list.add(addObject("price_chf",context.getResources().getString(R.string.frank), price_chf, iran_currency, tomanConvert ));
         list.add(addObject("price_cny",context.getResources().getString(R.string.yuan), price_cny, iran_currency, tomanConvert ));
         list.add(addObject("price_jpy",context.getResources().getString(R.string.yen), price_jpy, iran_currency, tomanConvert ));
         list.add(addObject("price_afn",context.getResources().getString(R.string.afghani), price_afn, iran_currency, tomanConvert ));

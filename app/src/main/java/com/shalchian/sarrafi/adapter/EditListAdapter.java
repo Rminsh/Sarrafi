@@ -114,9 +114,9 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListAdapter.ItemVi
 
     public ItemViewHolder(View itemView) {
       super(itemView);
-      textView = (TextView) itemView.findViewById(R.id.item_edit_text);
-      handleView = (ImageView) itemView.findViewById(R.id.item_edit_handle);
-      removeView = (ImageView) itemView.findViewById(R.id.item_edit_remove);
+      textView = itemView.findViewById(R.id.item_edit_text);
+      handleView = itemView.findViewById(R.id.item_edit_handle);
+      removeView = itemView.findViewById(R.id.item_edit_remove);
     }
 
     @Override

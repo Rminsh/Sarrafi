@@ -19,11 +19,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
-apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion '30.0.2'
+    buildToolsVersion '30.0.3'
     flavorDimensions "default"
     defaultConfig {
         applicationId "com.shalchian.sarrafi"
@@ -65,26 +64,26 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.preference:preference-ktx:1.1.1'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     //Kotlin libraries
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10'
+    implementation 'androidx.core:core-ktx:1.5.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.31'
 
     //RTL ViewPager
     implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
 
     //Firebase
-    implementation 'com.google.firebase:firebase-analytics:17.5.0'
-    implementation 'com.google.firebase:firebase-crashlytics:17.2.2'
+    implementation 'com.google.firebase:firebase-analytics:19.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics:18.0.0'
 
     //Android Fast networking
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
@@ -94,17 +93,13 @@ dependencies {
     implementation 'io.github.inflationx:viewpump:2.0.3'
 
     //Lottie Animation
-    implementation 'com.airbnb.android:lottie:3.4.2'
+    implementation 'com.airbnb.android:lottie:3.6.0'
 
     //MPAndroidChart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
-    //About Libraries
-    implementation 'com.mikepenz:aboutlibraries-core:8.0.0-rc02'
-    implementation 'com.mikepenz:aboutlibraries:8.0.0-rc02'
-
     //Material about library
-    implementation 'com.github.daniel-stoneuk:material-about-library:3.0.0'
+    implementation 'com.github.daniel-stoneuk:material-about-library:3.1.2'
 
     //Circular progress indicator
     implementation 'com.github.antonKozyriatskyi:CircularProgressIndicator:1.3.0'
@@ -119,7 +114,7 @@ dependencies {
     implementation 'com.shreyaspatil:MaterialDialog:2.1'
 
     //Google Play Core
-    implementation 'com.google.android.play:core:1.8.2'
+    implementation 'com.google.android.play:core:1.10.0'
 
     // Material Navigation View Library
     implementation 'com.shreyaspatil:MaterialNavigationView:1.2'

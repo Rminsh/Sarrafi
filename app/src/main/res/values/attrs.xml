@@ -4,4 +4,15 @@
     <declare-styleable name="AnimatedTabLayout">
         <attr name="atl_tabs" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="currencies">
+        <attr name="title" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="currencyCategory">
+        <attr name="object" format="string" />
+        <attr name="name" format="string" />
+        <attr name="drawable" format="reference|color" />
+        <attr name="exchange" format="string" />
+    </declare-styleable>
 </resources>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<currencies 
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <currencyCategory app:title="@string/currency_items">
+        <currency
+            app:object="price_dollar_rl"
+            app:name="@string/dollar"
+            app:drawable="@drawable/flag_us"
+            app:exchange="ir" />
+        <currency
+            app:object="price_dollar_soleymani"
+            app:name="@string/dollar_soleymani"
+            app:drawable="@drawable/flag_us"
+            app:exchange="ir" />
+        <currency
+            app:object="price_eur"
+            app:name="@string/euro"
+            app:drawable="@drawable/flag_eu"
+            app:exchange="ir" />
+        <currency
+            app:object="price_cad"
+            app:name="@string/dollar_canada"
+            app:drawable="@drawable/flag_ca"
+            app:exchange="ir" />
+        <currency
+            app:object="price_aud"
+            app:name="@string/dollar_australia"
+            app:drawable="@drawable/flag_au"
+            app:exchange="ir" />
+        <currency
+            app:object="price_nzd"
+            app:name="@string/dollar_new_zealand"
+            app:drawable="@drawable/flag_nz"
+            app:exchange="ir" />
+        <currency
+            app:object="price_sgd"
+            app:name="@string/dollar_singapore"
+            app:drawable="@drawable/flag_sg"
+            app:exchange="ir" />
+        <currency
+            app:object="price_gbp"
+            app:name="@string/pound"
+            app:drawable="@drawable/flag_uk"
+            app:exchange="ir" />
+        <currency
+            app:object="price_aed"
+            app:name="@string/dirham"
+            app:drawable="@drawable/flag_ae"
+            app:exchange="ir" />
+        <currency
+            app:object="price_try"
+            app:name="@string/lira"
+            app:drawable="@drawable/flag_tr"
+            app:exchange="ir" />
+        <currency
+            app:object="price_chf"
+            app:name="@string/frank"
+            app:drawable="@drawable/flag_ch"
+            app:exchange="ir" />
+        <currency
+            app:object="price_cny"
+            app:name="@string/yuan"
+            app:drawable="@drawable/flag_cn"
+            app:exchange="ir" />
+        <currency
+            app:object="price_jpy"
+            app:name="@string/yen"
+            app:drawable="@drawable/flag_jp"
+            app:exchange="ir" />
+        <currency
+            app:object="price_afn"
+            app:name="@string/afghani"
+            app:drawable="@drawable/flag_af"
+            app:exchange="ir" />
+        <currency
+            app:object="price_inr"
+            app:name="@string/rupee_india"
+            app:drawable="@drawable/flag_in"
+            app:exchange="ir" />
+        <currency
+            app:object="price_iqd"
+            app:name="@string/dinar_iraq"
+            app:drawable="@drawable/flag_iq"
+            app:exchange="ir" />
+        <currency
+            app:object="price_sek"
+            app:name="@string/krona_sweden"
+            app:drawable="@drawable/flag_se"
+            app:exchange="ir" />
+        <currency
+            app:object="price_myr"
+            app:name="@string/ringgit_malaysian"
+            app:drawable="@drawable/flag_my"
+            app:exchange="ir" />
+        <currency
+            app:object="price_rub"
+            app:name="@string/rouble"
+            app:drawable="@drawable/flag_ru"
+            app:exchange="ir" />
+    </currencyCategory>
+
+    <currencyCategory app:title="@string/gold_items">
+        <currency
+            app:object="sekee"
+            app:name="@string/sekee"
+            app:drawable="@android:color/transparent"
+            app:exchange="ir" />
+        <currency
+            app:object="sekeb"
+            app:name="@string/sekeb"
+            app:drawable="@android:color/transparent"
+            app:exchange="ir" />
+        <currency
+            app:object="nim"
+            app:name="@string/nim_seke"
+            app:drawable="@android:color/transparent"
+            app:exchange="ir" />
+        <currency
+            app:object="rob"
+            app:name="@string/rob_seke"
+            app:drawable="@android:color/transparent"
+            app:exchange="ir" />
+        <currency
+            app:object="geram24"
+            app:name="@string/gold_24"
+            app:drawable="@android:color/transparent"
+            app:exchange="ir" />
+        <currency
+            app:object="geram18"
+            app:name="@string/gold_18"
+            app:drawable="@android:color/transparent"
+            app:exchange="ir" />
+        <currency
+            app:object="mesghal"
+            app:name="@string/mesghal"
+            app:drawable="@android:color/transparent"
+            app:exchange="ir" />
+        <currency
+            app:object="gerami"
+            app:name="@string/seke_gram"
+            app:drawable="@android:color/transparent"
+            app:exchange="ir" />
+        <currency
+            app:object="ons"
+            app:name="@string/gold_ons"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="silver"
+            app:name="@string/silver_ons"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="gold_mini_size"
+            app:name="@string/gold_mini_size"
+            app:drawable="@android:color/transparent"
+            app:exchange="ir" />
+    </currencyCategory>
+
+    <currencyCategory app:title="@string/oil_items">
+        <currency
+            app:object="oil"
+            app:name="@string/oil_usa"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="oil_brent"
+            app:name="@string/oil_brent"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="oil_opec"
+            app:name="@string/oil_opec"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="general_9"
+            app:name="@string/gas_usa"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="general_10"
+            app:name="@string/gas_natural_usa"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="general_11"
+            app:name="@string/gasoline_uk"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+    </currencyCategory>
+
+    <currencyCategory app:title="@string/digital_currency_items">
+        <currency
+            app:object="crypto-bitcoin"
+            app:name="@string/bitcoin"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="crypto-ethereum"
+            app:name="@string/ethereum"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="crypto-ripple"
+            app:name="@string/ripple"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="crypto-dash"
+            app:name="@string/dash"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="crypto-litecoin"
+            app:name="@string/litecoin"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+        <currency
+            app:object="crypto-stellar"
+            app:name="@string/stellar"
+            app:drawable="@android:color/transparent"
+            app:exchange="dollar" />
+    </currencyCategory>
+</currencies>

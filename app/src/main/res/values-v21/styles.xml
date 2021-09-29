@@ -14,7 +14,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorSecondary">@color/colorPrimaryLight</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
-        <item name="aboutLibrariesCardBackground">@color/colorPrimaryLight</item>
+        <!-- <item name="aboutLibrariesCardBackground">@color/colorPrimaryLight</item>-->
         <item name="android:navigationBarColor">@color/colorPrimaryLight</item>
 
         <!-- Customize your theme here. -->

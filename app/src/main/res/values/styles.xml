@@ -30,7 +30,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorSecondary">@color/colorPrimaryLight</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
-        <item name="aboutLibrariesCardBackground">@color/colorPrimaryLight</item>
+        <!-- <item name="aboutLibrariesCardBackground">@color/colorPrimaryLight</item>-->
 
         <!-- Customize your theme here. -->
         <item name="material_dialog_background">@color/colorPrimaryLight</item>
