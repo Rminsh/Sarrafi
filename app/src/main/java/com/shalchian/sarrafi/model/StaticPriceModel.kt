@@ -1,4 +1,3 @@
-
 /*
  *     This file is part of Sarrafi.
  *
@@ -15,29 +14,13 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
  */
+package com.shalchian.sarrafi.model
 
-package com.shalchian.sarrafi.model;
+import android.graphics.drawable.Drawable
 
-public class UnitItem {
-  private String unitName;
-  private int unitFlagImage;
-  private double unitPrice;
-
-  public String getUnitName() {
-    return unitName;
-  }
-
-  public int getUnitFlagImage() {
-    return unitFlagImage;
-  }
-
-  public double getUnitPrice() {
-    return unitPrice;
-  }
-
-  public UnitItem(String unitName, int unitFlagImage, double unitPrice) {
-    this.unitName = unitName;
-    this.unitFlagImage = unitFlagImage;
-    this.unitPrice = unitPrice;
-  }
-}
+data class StaticPriceModel(
+    val `object`: String,
+    val name: String,
+    val drawable: Drawable,
+    val exchange: String
+)
