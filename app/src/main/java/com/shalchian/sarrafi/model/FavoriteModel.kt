@@ -1,4 +1,3 @@
-
 /*
  *     This file is part of Sarrafi.
  *
@@ -15,36 +14,6 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
  */
+package com.shalchian.sarrafi.model
 
-package com.shalchian.sarrafi.model;
-
-public class FavoriteModel {
-
-  private String objName, name;
-
-  public String getObjName() {
-    return objName;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public FavoriteModel(String objName,String name) {
-    this.objName = objName;
-    this.name = name;
-  }
-
-  @Override
-  public boolean equals(Object other) {
-    if(this == other)
-      return true;
-    if(other == null)
-      return false;
-    if(getClass() != other.getClass())
-      return false;
-
-    FavoriteModel test = (FavoriteModel)other;
-    return this.objName.equals(test.getObjName()) && this.name.equals(test.getName());
-  }
-}
+data class FavoriteModel(val objName: String, val name: String)

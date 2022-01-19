@@ -14,65 +14,17 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Sarrafi.  If not, see <https://www.gnu.org/licenses/>.
  */
+package com.shalchian.sarrafi.model
 
-package com.shalchian.sarrafi.model;
-
-public class PriceModel {
-
-  private String objName, type, toCurrency, price, price_high, price_low, status, time, price_change;
-  private Double percent_change;
-
-  public String getObjName() {
-    return objName;
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  public String getToCurrency() {
-    return toCurrency;
-  }
-
-  public String getPrice() {
-    return price;
-  }
-
-  public String getPrice_high() {
-    return price_high;
-  }
-
-  public String getPrice_low() {
-    return price_low;
-  }
-
-  public String getPrice_change() {
-    return price_change;
-  }
-
-  public Double getPercent_change() {
-    return percent_change;
-  }
-
-  public String getStatus() {
-    return status;
-  }
-
-  public String getTime() {
-    return time;
-  }
-
-  public PriceModel(String objName,String type, String toCurrency, String price, String price_high, String price_low, String price_change , Double percent_change, String status, String time) {
-    this.objName = objName;
-    this.type = type;
-    this.toCurrency = toCurrency;
-    this.price = price;
-    this.price_high = price_high;
-    this.price_low = price_low;
-    this.price_change = price_change;
-    this.percent_change = percent_change;
-    this.status = status;
-    this.time = time;
-  }
-
-}
+class PriceModel(
+    val objName: String,
+    val type: String,
+    val toCurrency: String,
+    val price: String,
+    val price_high: String,
+    val price_low: String,
+    val price_change: String,
+    val percent_change: Double,
+    val status: String,
+    val time: String
+)
