@@ -11,15 +11,15 @@ import androidx.annotation.RequiresApi
 import androidx.viewpager.widget.ViewPager
 import com.shalchian.sarrafi.R
 
-class AnimatedTabLayout : FrameLayout {
+class AnimatedTabLayout(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
 
     interface OnChangeListener{
         fun onChanged(position: Int)
     }
 
-    lateinit var containerLinearLayout: LinearLayout
+    var containerLinearLayout: LinearLayout
 
-    lateinit var tabs: List<AnimatedTabItemContainer>
+    var tabs: List<AnimatedTabItemContainer>
 
     lateinit var selectedTab: AnimatedTabItemContainer
 
@@ -27,26 +27,8 @@ class AnimatedTabLayout : FrameLayout {
 
     private var onChangeListener: OnChangeListener? = null
 
-    constructor(context: Context) : super(context) {
-        init(context, null, 0, 0)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        init(context, attrs, 0, 0)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        init(context, attrs, defStyleAttr, 0)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
-        init(context, attrs, defStyleAttr, defStyleRes)
-    }
-
-
-    private fun init(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-        val typedArray = context?.theme?.obtainStyledAttributes(attrs, R.styleable.AnimatedTabLayout, defStyleAttr, defStyleRes)
+    init {
+        val typedArray = context.theme?.obtainStyledAttributes(attrs, R.styleable.AnimatedTabLayout, 0, 0)
         val tabXmlResource = typedArray?.getResourceId(R.styleable.AnimatedTabLayout_atl_tabs, 0)
 
         tabs = AnimatedTabResourceParser(context, tabXmlResource!!).parse()

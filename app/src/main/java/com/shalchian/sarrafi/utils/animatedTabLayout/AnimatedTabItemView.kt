@@ -17,7 +17,8 @@ import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 
-class AnimatedTabItemView : LinearLayout {
+class AnimatedTabItemView(context: Context, attrs: AttributeSet? = null)
+    : LinearLayout(context, attrs) {
 
     enum class State {
         COLLAPSED, EXPANDED
@@ -47,19 +48,7 @@ class AnimatedTabItemView : LinearLayout {
 
     private var imageView: ImageView? = null
 
-    constructor(context: Context) : super(context) {
-        init(context, null)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        init(context, attrs)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        init(context, attrs)
-    }
-
-    private fun init(context: Context, attrs: AttributeSet?) {
+    init {
         path = Path()
         rectF = RectF(0f, 0f, 0f, 0f)
         maskPaint = Paint(Paint.ANTI_ALIAS_FLAG)
