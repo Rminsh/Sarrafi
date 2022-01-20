@@ -129,20 +129,20 @@ public class ActivityHelper {
   public static void rateUS(Activity activity, Context baseContext) {
     ReviewManager reviewManager = ReviewManagerFactory.create(baseContext);
     Task<ReviewInfo> request = reviewManager.requestReviewFlow();
-    request.addOnCompleteListener((OnCompleteListener<ReviewInfo>) task -> {
+    request.addOnCompleteListener(task -> {
       if (task.isSuccessful()) {
         ReviewInfo reviewInfo = task.getResult();
 
         Task<Void> flow = reviewManager.launchReviewFlow(activity, reviewInfo);
         flow.addOnCompleteListener(task1 -> {
           Toast.makeText(baseContext, baseContext.getResources().getString(R.string.rate_thanks), Toast.LENGTH_SHORT).show();
-        }).addOnFailureListener((OnFailureListener) e -> {
+        }).addOnFailureListener(e -> {
           Toast.makeText(baseContext, baseContext.getResources().getString(R.string.rate_error), Toast.LENGTH_SHORT).show();
         });
       } else {
         Log.e("Review error", "Review error");
         Toast.makeText(baseContext, baseContext.getResources().getString(R.string.rate_error), Toast.LENGTH_SHORT).show();
       }
-    }).addOnFailureListener((OnFailureListener) e -> Log.e("Review error", "Review error"));
+    }).addOnFailureListener(e -> Log.e("Review error", "Review error"));
   }
 }
