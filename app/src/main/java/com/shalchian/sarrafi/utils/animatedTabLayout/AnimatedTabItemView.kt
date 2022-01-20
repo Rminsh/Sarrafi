@@ -164,41 +164,33 @@ class AnimatedTabItemView(context: Context, attrs: AttributeSet? = null)
     }
 
     private fun createSizeAnimator() {
-        sizeAnimator = ValueAnimator.ofFloat(0f, 0f)
-                .also {
-                    it?.apply {
-                        duration = animDuration
-                        interpolator = DecelerateInterpolator()
-                        addUpdateListener { animation -> calculateBorders(animation.animatedValue as Float) }
-                    }
-                }
+        sizeAnimator = ValueAnimator.ofFloat(0f, 0f).apply {
+            duration = animDuration
+            interpolator = DecelerateInterpolator()
+            addUpdateListener { animation -> calculateBorders(animation.animatedValue as Float) }
+        }
     }
 
     private fun createColorAnimator() {
-        layoutColorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), fromColor, toColor)
-                .also {
-                    it?.apply {
-                        duration = animDuration
-                        interpolator = DecelerateInterpolator()
-                        addUpdateListener { animation ->
-                            setBackgroundColor(animation.animatedValue as Int)
-                            postInvalidate()
-                        }
-                    }
-                }
+        layoutColorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), fromColor, toColor).apply {
+            duration = animDuration
+            interpolator = DecelerateInterpolator()
+            addUpdateListener { animation ->
+                setBackgroundColor(animation.animatedValue as Int)
+                postInvalidate()
+            }
+        }
 
         iconColorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), iconFromColor, iconToColor)
-                .also {
-                    it?.apply {
-                        duration = animDuration
-                        interpolator = DecelerateInterpolator()
-                        addUpdateListener { animation ->
-                            val drawable = imageView?.background
-                            drawable?.colorFilter = PorterDuffColorFilter(animation.animatedValue as Int, PorterDuff.Mode.SRC_IN)
-                            postInvalidate()
-                        }
-                    }
+            .apply {
+                duration = animDuration
+                interpolator = DecelerateInterpolator()
+                addUpdateListener { animation ->
+                    val drawable = imageView?.background
+                    drawable?.colorFilter = PorterDuffColorFilter(animation.animatedValue as Int, PorterDuff.Mode.SRC_IN)
+                    postInvalidate()
                 }
+            }
     }
 
     private fun createAnimatorSet() {
