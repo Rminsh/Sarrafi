@@ -22,24 +22,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.max
 
-class AutoFitRecyclerView : RecyclerView {
-    private var manager: GridLayoutManager? = null
-    private var columnWidth = -1 //default value
+class AutoFitRecyclerView(context: Context, attrs: AttributeSet? = null)
+    : RecyclerView(context, attrs) {
 
-    constructor(context: Context) : super(context) {
-        init(context, null)
-    }
+    private val manager: GridLayoutManager
+    private var columnWidth = -1 // default value
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        init(context, attrs)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) :
-            super(context, attrs, defStyle) {
-        init(context, attrs)
-    }
-
-    private fun init(context: Context, attrs: AttributeSet?) {
+    init {
         if (attrs != null) {
             val attrsArray = intArrayOf(android.R.attr.columnWidth)
             val array = context.obtainStyledAttributes(attrs, attrsArray)
@@ -54,7 +43,7 @@ class AutoFitRecyclerView : RecyclerView {
         super.onMeasure(widthSpec, heightSpec)
         if (columnWidth > 0) {
             val spanCount = max(1, measuredWidth / columnWidth)
-            manager!!.spanCount = spanCount
+            manager.spanCount = spanCount
         }
     }
 }
