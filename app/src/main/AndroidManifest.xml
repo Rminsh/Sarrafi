@@ -36,7 +36,8 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".activity.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="com.samsung.android.cocktail.v2.action.COCKTAIL_UPDATE" />
@@ -62,7 +63,8 @@
         <!-- Edge Panel (Galaxy Edge) -->
         <receiver
             android:name=".edge.EdgePlusList"
-            tools:ignore="ExportedReceiver">
+            tools:ignore="ExportedReceiver"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.samsung.android.cocktail.v2.action.COCKTAIL_UPDATE" />
                 <action android:name="com.shalchian.sarrafi.action.ACTION_PULL_TO_REFRESH" />
@@ -85,7 +87,8 @@
         <!-- Widget-->
         <receiver
             android:name=".widget.SymbolWidget"
-            android:label="@string/symbol">
+            android:label="@string/symbol"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.shalchian.sarrafi.widget.SymbolWidget.REFRESH" />

@@ -72,7 +72,7 @@ public class SettingsActivity extends AppCompatActivity {
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
       setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
-      SwitchPreferenceCompat preference = (SwitchPreferenceCompat) findPreference("toman");
+      SwitchPreferenceCompat preference = findPreference("toman");
       if (preference != null) {
 
         preference.setOnPreferenceClickListener(preference1 -> {
