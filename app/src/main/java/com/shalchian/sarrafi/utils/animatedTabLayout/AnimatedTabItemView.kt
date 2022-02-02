@@ -17,7 +17,8 @@ import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 
-class AnimatedTabItemView : LinearLayout {
+class AnimatedTabItemView(context: Context, attrs: AttributeSet? = null)
+    : LinearLayout(context, attrs) {
 
     enum class State {
         COLLAPSED, EXPANDED
@@ -47,19 +48,7 @@ class AnimatedTabItemView : LinearLayout {
 
     private var imageView: ImageView? = null
 
-    constructor(context: Context) : super(context) {
-        init(context, null)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        init(context, attrs)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        init(context, attrs)
-    }
-
-    private fun init(context: Context, attrs: AttributeSet?) {
+    init {
         path = Path()
         rectF = RectF(0f, 0f, 0f, 0f)
         maskPaint = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -175,41 +164,33 @@ class AnimatedTabItemView : LinearLayout {
     }
 
     private fun createSizeAnimator() {
-        sizeAnimator = ValueAnimator.ofFloat(0f, 0f)
-                .also {
-                    it?.apply {
-                        duration = animDuration
-                        interpolator = DecelerateInterpolator()
-                        addUpdateListener { animation -> calculateBorders(animation.animatedValue as Float) }
-                    }
-                }
+        sizeAnimator = ValueAnimator.ofFloat(0f, 0f).apply {
+            duration = animDuration
+            interpolator = DecelerateInterpolator()
+            addUpdateListener { animation -> calculateBorders(animation.animatedValue as Float) }
+        }
     }
 
     private fun createColorAnimator() {
-        layoutColorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), fromColor, toColor)
-                .also {
-                    it?.apply {
-                        duration = animDuration
-                        interpolator = DecelerateInterpolator()
-                        addUpdateListener { animation ->
-                            setBackgroundColor(animation.animatedValue as Int)
-                            postInvalidate()
-                        }
-                    }
-                }
+        layoutColorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), fromColor, toColor).apply {
+            duration = animDuration
+            interpolator = DecelerateInterpolator()
+            addUpdateListener { animation ->
+                setBackgroundColor(animation.animatedValue as Int)
+                postInvalidate()
+            }
+        }
 
         iconColorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), iconFromColor, iconToColor)
-                .also {
-                    it?.apply {
-                        duration = animDuration
-                        interpolator = DecelerateInterpolator()
-                        addUpdateListener { animation ->
-                            val drawable = imageView?.background
-                            drawable?.colorFilter = PorterDuffColorFilter(animation.animatedValue as Int, PorterDuff.Mode.SRC_IN)
-                            postInvalidate()
-                        }
-                    }
+            .apply {
+                duration = animDuration
+                interpolator = DecelerateInterpolator()
+                addUpdateListener { animation ->
+                    val drawable = imageView?.background
+                    drawable?.colorFilter = PorterDuffColorFilter(animation.animatedValue as Int, PorterDuff.Mode.SRC_IN)
+                    postInvalidate()
                 }
+            }
     }
 
     private fun createAnimatorSet() {

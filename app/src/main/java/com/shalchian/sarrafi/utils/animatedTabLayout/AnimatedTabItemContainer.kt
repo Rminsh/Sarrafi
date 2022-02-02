@@ -5,23 +5,12 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.LinearLayout
 
-class AnimatedTabItemContainer : LinearLayout {
+class AnimatedTabItemContainer(context: Context, attrs: AttributeSet? = null)
+    : LinearLayout(context, attrs) {
 
     private var tabItem: AnimatedTabItemView? = null
 
-    constructor(context: Context) : super(context) {
-        init(context)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        init(context)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        init(context)
-    }
-
-    private fun init(context: Context) {
+    init {
         layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         gravity = Gravity.CENTER_VERTICAL
         tabItem = AnimatedTabItemView(context)
