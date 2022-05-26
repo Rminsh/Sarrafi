@@ -39,7 +39,6 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.shalchian.sarrafi.BuildConfig;
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.db.DatabaseManager;
 import com.shalchian.sarrafi.fragment.CurrencyListFragment;
@@ -106,7 +105,6 @@ public class MainTabActivity extends AppCompatActivity {
     status_text = findViewById(R.id.status_text);
     status_button = findViewById(R.id.status_button);
 
-    navigationView.getMenu().findItem(R.id.nav_rate).setVisible(!BuildConfig.showUpdater);
     drawerLayout.addDrawerListener(toggle);
     toggle.syncState();
     Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
@@ -138,9 +136,6 @@ public class MainTabActivity extends AppCompatActivity {
         case R.id.nav_about:
           intent = new Intent(getApplicationContext(), AboutActivity.class);
           startActivity(intent);
-          return false;
-        case R.id.nav_rate:
-          ActivityHelper.rateUS(this, getBaseContext());
           return false;
         default:
           return false;

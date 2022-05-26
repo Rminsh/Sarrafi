@@ -35,11 +35,7 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 
 3- Change Package Name.
 
-4- Create Firebase project & Download **google-service.json** file and copy it to app folder.
-
 5- build & run.
-
-6- enjoy.
 
 
 
@@ -69,6 +65,6 @@ Feel free to Fork, edit, then pull!
 
 ## Copyright Notice 📝
 
-Copyright (C) 2020 Armin Shalchian
+Copyright (C) 2022 Armin Shalchian
 
 Licensed under the [GNU Version 3](https://www.gnu.org/licenses/gpl-3.0.en.html) license (see the LICENSE file).

@@ -50,7 +50,6 @@ public class JSONParser {
     if (jsonData != null) {
       JSONObject price_dollar_rl = jsonData.getJSONObject("price_dollar_rl");
       JSONObject price_eur              = jsonData.getJSONObject("price_eur");
-      JSONObject price_dollar_soleymani = jsonData.getJSONObject("price_dollar_soleymani");
       JSONObject price_cad              = jsonData.getJSONObject("price_cad");
       JSONObject price_aud              = jsonData.getJSONObject("price_aud");
       JSONObject price_nzd              = jsonData.getJSONObject("price_nzd");
@@ -96,7 +95,6 @@ public class JSONParser {
 
       if (checkedFilter.equals("currency") || checkedFilter.equals("")) {
         list.add(addObject("price_dollar_rl",context.getResources().getString(R.string.dollar), price_dollar_rl, iran_currency, tomanConvert ));
-        list.add(addObject("price_dollar_soleymani",context.getResources().getString(R.string.dollar_soleymani), price_dollar_soleymani, iran_currency, tomanConvert ));
         list.add(addObject("price_eur",context.getResources().getString(R.string.euro), price_eur, iran_currency, tomanConvert ));
         list.add(addObject("price_cad",context.getResources().getString(R.string.dollar_canada), price_cad, iran_currency, tomanConvert ));
         list.add(addObject("price_aud",context.getResources().getString(R.string.dollar_australia), price_aud, iran_currency, tomanConvert ));
@@ -320,7 +318,6 @@ public class JSONParser {
     if (jsonData != null) {
       double rial = 1.0;
       double dollar = Double.parseDouble(jsonData.getJSONObject("price_dollar_rl").getString("p").replace(",", ""));
-      double dollar_soleymani = Double.parseDouble(jsonData.getJSONObject("price_dollar_soleymani").getString("p").replace(",", ""));
       double euro = Double.parseDouble(jsonData.getJSONObject("price_eur").getString("p").replace(",", ""));
       double dollar_canada = Double.parseDouble(jsonData.getJSONObject("price_cad").getString("p").replace(",", ""));
       double dollar_australia = Double.parseDouble(jsonData.getJSONObject("price_aud").getString("p").replace(",", ""));
@@ -341,7 +338,6 @@ public class JSONParser {
 
       unitItems.add(new UnitItem(context.getResources().getString(R.string.rial), R.drawable.flag_ir, rial));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar), R.drawable.flag_us, dollar));
-      unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar_soleymani), R.drawable.flag_us, dollar_soleymani));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.euro), R.drawable.flag_eu, euro));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar_canada), R.drawable.flag_ca, dollar_canada));
       unitItems.add(new UnitItem(context.getResources().getString(R.string.dollar_australia), R.drawable.flag_au, dollar_australia));

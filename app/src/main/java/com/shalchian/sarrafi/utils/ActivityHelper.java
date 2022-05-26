@@ -25,7 +25,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -34,12 +33,6 @@ import com.github.javiersantos.appupdater.enums.AppUpdaterError;
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.github.javiersantos.appupdater.objects.Update;
 
-import com.google.android.play.core.review.ReviewInfo;
-import com.google.android.play.core.review.ReviewManager;
-import com.google.android.play.core.review.ReviewManagerFactory;
-import com.google.android.play.core.tasks.OnCompleteListener;
-import com.google.android.play.core.tasks.OnFailureListener;
-import com.google.android.play.core.tasks.Task;
 import com.shalchian.sarrafi.R;
 import com.shalchian.sarrafi.BuildConfig;
 
@@ -124,25 +117,5 @@ public class ActivityHelper {
               });
       appUpdaterUtils.start();
     }
-  }
-
-  public static void rateUS(Activity activity, Context baseContext) {
-    ReviewManager reviewManager = ReviewManagerFactory.create(baseContext);
-    Task<ReviewInfo> request = reviewManager.requestReviewFlow();
-    request.addOnCompleteListener(task -> {
-      if (task.isSuccessful()) {
-        ReviewInfo reviewInfo = task.getResult();
-
-        Task<Void> flow = reviewManager.launchReviewFlow(activity, reviewInfo);
-        flow.addOnCompleteListener(task1 -> {
-          Toast.makeText(baseContext, baseContext.getResources().getString(R.string.rate_thanks), Toast.LENGTH_SHORT).show();
-        }).addOnFailureListener(e -> {
-          Toast.makeText(baseContext, baseContext.getResources().getString(R.string.rate_error), Toast.LENGTH_SHORT).show();
-        });
-      } else {
-        Log.e("Review error", "Review error");
-        Toast.makeText(baseContext, baseContext.getResources().getString(R.string.rate_error), Toast.LENGTH_SHORT).show();
-      }
-    }).addOnFailureListener(e -> Log.e("Review error", "Review error"));
   }
 }

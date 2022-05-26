@@ -26,8 +26,4 @@
     <item
         android:title="@string/about"
         android:id="@+id/menu_about" />
-
-    <item
-        android:title="@string/rate_us"
-        android:id="@+id/menu_rate" />
 </menu>

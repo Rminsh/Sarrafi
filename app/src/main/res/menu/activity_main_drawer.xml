@@ -16,9 +16,5 @@
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_information"
             android:title="@string/about" />
-        <item
-            android:id="@+id/nav_rate"
-            android:icon="@drawable/ic_star_fill"
-            android:title="@string/rate_us" />
     </group>
 </menu>

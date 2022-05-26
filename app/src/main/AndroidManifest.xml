@@ -48,7 +48,6 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.DetailActivity" />
         <activity android:name=".activity.EditFavoriteListActivity" />
-        <activity android:name=".activity.SelectSymbolActivity" />
         <activity
             android:name=".activity.CalculatorActivity"
             android:configChanges="screenLayout|orientation|screenSize" />
@@ -83,21 +82,6 @@
         <meta-data
             android:name="com.samsung.android.cocktail.mode"
             android:value="edge_single_plus" />
-
-        <!-- Widget-->
-        <receiver
-            android:name=".widget.SymbolWidget"
-            android:label="@string/symbol"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.shalchian.sarrafi.widget.SymbolWidget.REFRESH" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/symbol_widget_info" />
-        </receiver>
 
     </application>
 
