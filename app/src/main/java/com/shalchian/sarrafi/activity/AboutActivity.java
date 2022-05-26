@@ -34,8 +34,6 @@ import com.danielstone.materialaboutlibrary.items.MaterialAboutTitleItem;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutCard;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutList;
 
-import java.util.Objects;
-
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;
@@ -62,7 +60,6 @@ public class AboutActivity extends MaterialAboutActivity {
     super.onCreate(savedInstanceState);
     AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
-    Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.about);
   }
 
   @NonNull

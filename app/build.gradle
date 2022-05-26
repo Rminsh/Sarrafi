@@ -78,7 +78,7 @@ dependencies {
 
     //Kotlin libraries
     implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21'
 
     //RTL ViewPager
     implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
