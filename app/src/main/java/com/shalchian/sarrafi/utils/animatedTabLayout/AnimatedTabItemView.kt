@@ -57,10 +57,8 @@ class AnimatedTabItemView(context: Context, attrs: AttributeSet? = null)
         layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         gravity = Gravity.CENTER
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            outlineProvider = ClipOutlineProvider()
-            clipToOutline = true
-        }
+        outlineProvider = ClipOutlineProvider()
+        clipToOutline = true
 
         val imageViewLayoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         imageView = ImageView(context)
@@ -112,11 +110,7 @@ class AnimatedTabItemView(context: Context, attrs: AttributeSet? = null)
 
     fun setDrawable(drawable: Drawable?) {
         drawable?.colorFilter = PorterDuffColorFilter(iconFromColor, PorterDuff.Mode.SRC_IN)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            imageView?.background = drawable
-        } else {
-            imageView?.setBackgroundDrawable(drawable)
-        }
+        imageView?.background = drawable
     }
 
     fun setItemSize(mSize: Float) {
@@ -214,7 +208,6 @@ class AnimatedTabItemView(context: Context, attrs: AttributeSet? = null)
         const val multiplier: Double = 0.15
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private inner class ClipOutlineProvider : ViewOutlineProvider() {
         override fun getOutline(view: View, outline: Outline) {
             outline.setRoundRect(0, 0, mWidth.toInt(),
