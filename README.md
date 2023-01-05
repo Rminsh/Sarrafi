@@ -8,7 +8,6 @@ A simple android application that shows latest price of currencies, gold, oil an
 This project implemented in [Persian language](https://en.wikipedia.org/wiki/Persian_language) and use [tgju.org](http://www.tgju.org/) website API to get the latest prices.
 
 
-
 ## Features 🌟
 
 - Display the latest prices
@@ -17,33 +16,27 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 - Price list in samsung edge panel (only galaxy edge series supported)
 
 
-
 ## Previews 📱
 
 <p align="center">
-<img src="preview/preview_1.png" height="350"/>
-<img src="preview/preview_2.png" height="350"/>
-<img src="preview/preview_3.png" height="350"/>
-<img src="preview/preview_4.png" height="350"/>
+<img src="preview/preview_1.png" height="600"/>
+<img src="preview/preview_2.png" height="600"/>
+<img src="preview/preview_3.png" height="600"/>
+<img src="preview/preview_4.png" height="600"/>
 
 
 ## How to build 🛠
 
-1- Fork the project & Clone it to your desktop.
-
-2- Open it from Android Studio.
-
-3- Change Package Name.
-
-5- build & run.
-
+- Fork the project & Clone it to your desktop.
+- Open it from Android Studio.
+- Change Package Name.
+- build & run.
 
 
 ## Contribute 🧩
 
 Want to contribute? I would really appreciate a hand with the development to add more features in this app.
 Feel free to Fork, edit, then pull!
-
 
 
 ## Donation ✌🏻
@@ -53,12 +46,10 @@ Feel free to Fork, edit, then pull!
 </a>
 
 
-
 ## Download ⬇️
 
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Google play download"  height="80">](https://play.google.com/store/apps/details?id=com.shalchian.sarrafi)
 [<img src="preview/direct-apk-download.png" alt="Direct apk download"  height="80">](https://github.com/Rminsh/Sarrafi/releases/latest)
-
 
 
 ## Copyright Notice 📝
