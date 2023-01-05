@@ -42,7 +42,7 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:textColor="#CCFFFFFF"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:text="دلار"/>
 
         <TextView
