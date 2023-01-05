@@ -48,10 +48,8 @@ Feel free to Fork, edit, then pull!
 
 ## Donation ✌🏻
 
-#### Patreon
-
-<a href="https://www.patreon.com/shalchian">
-    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+<a href="https://www.buymeacoffee.com/shalchian" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="48" width="173">
 </a>
 
 
